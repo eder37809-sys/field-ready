@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Personas - Field Ready | Strategie Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#080A0D',      /* Deep Pitch Black */
+                        secondary: '#CCFF00',    /* Electric Volt Neon */
+                        secondaryHover: '#B5E600',
+                        accent: '#00E575',       /* Turf Green */
+                        background: '#0D1117',   /* Dark Slate */
+                        surface: '#141922',      /* Elevated Card */
+                        surfaceBorder: '#232B38',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Montserrat', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .neon-glow { box-shadow: 0 0 25px rgba(204, 255, 0, 0.25); }
+    </style>
+</head>
+
+<body class="bg-background text-slate-200 antialiased flex flex-col min-h-screen">
+
+    <!-- Header Navigation -->
+    <header class="bg-surface/90 backdrop-blur-md border-b border-surfaceBorder sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-primary border-2 border-secondary flex items-center justify-center neon-glow">
+                    <svg viewBox="0 0 40 40" width="24" height="24" fill="none">
+                        <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" stroke="#CCFF00" stroke-width="2.5" fill="#0A0E14" />
+                        <path d="M14 13 H28 L23 20 H18 L15 28 H10 Z" fill="#CCFF00" />
+                        <path d="M22 20 H28 L23 28 H17 Z" fill="#FFFFFF" opacity="0.85" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-serif font-black tracking-tight text-white text-xl">FIELD READY</span>
+                    <span class="hidden md:inline text-xs text-secondary font-mono ml-2 uppercase">Personas & Empathie</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-slate-300 hover:text-secondary transition-colors font-medium">Dashboard</a>
+                
+                <div class="relative group">
+                    <a href="personas.html" class="text-secondary font-bold border-b-2 border-secondary pb-1 flex items-center gap-1 py-2">
+                        Konzept & UX
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute left-0 mt-1 w-64 bg-surface border border-surfaceBorder rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-3">
+                        <a href="personas.html" class="block px-4 py-2.5 text-sm text-secondary bg-slate-800/80 font-bold">
+                            👥 Zielgruppen & 3 Personas
+                        </a>
+                        <a href="journeys.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            🗺️ Customer Journeys (Phasen & Prompts)
+                        </a>
+                        <a href="user-flows.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            🔀 User Flows & Workflows (Mermaid)
+                        </a>
+                    </div>
+                </div>
+
+                <a href="design-system.html" class="text-slate-300 hover:text-secondary transition-colors font-medium">Design System</a>
+                <a href="journeys.html#figma-make" class="bg-secondary/10 border border-secondary/30 text-secondary hover:bg-secondary hover:text-primary px-4 py-1.5 rounded-full text-xs font-bold transition-all">
+                    ⚡ Figma Make Prompts
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 py-12 space-y-20">
+
+        <!-- Intro & Quick Overview Grid (inspiriert von langerstrategy/personas.html) -->
+        <section class="text-center">
+            <h1 class="text-4xl md:text-5xl font-serif font-black text-white mb-4 uppercase tracking-tight">Target Personas</h1>
+            <div class="w-20 h-1 bg-secondary mx-auto rounded mb-6"></div>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-16 text-sm md:text-base leading-relaxed">
+                Unsere Strategie für <strong>FIELD READY</strong> basiert auf 3 klar definierten Archetypen: Dem Head Coach (Admin/Betreiber), dem jugendlichen Nachwuchsspieler (Hauptnutzer) und dem ambitionierten Amateur-Leistungsstürmer.
+            </p>
+
+            <!-- Quick-Nav Übersichtskarten -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <!-- Quick Card: Thomas Eder -->
+                <a href="#persona-thomas" class="bg-surface rounded-2xl p-6 border border-surfaceBorder hover:border-secondary transition-all shadow-lg group block transform hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-3">
+                        <img src="assets/images/coach_thomas.jpg" class="w-14 h-14 rounded-full object-cover border-2 border-secondary/60 flex-shrink-0" alt="Thomas Eder">
+                        <div>
+                            <span class="font-bold text-white text-base group-hover:text-secondary transition-colors block">Thomas Eder (18)</span>
+                            <span class="text-xs text-secondary font-mono uppercase tracking-wider font-semibold">Coach & Gründer</span>
+                            <span class="block text-[10px] text-accent font-medium mt-0.5">Admin-Sicht</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Zertifizierter Fitnessinstruktor & Fußballspezialist. Will viele Spieler gleichzeitig effizient und persönlich betreuen.
+                    </p>
+                </a>
+
+                <!-- Quick Card: Lukas Wallner (Kern-Persona) -->
+                <a href="#persona-lukas" class="bg-surface rounded-2xl p-6 border-2 border-secondary/80 hover:border-secondary transition-all shadow-lg group block transform hover:-translate-y-1 neon-glow">
+                    <span class="bg-secondary text-primary text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full inline-block mb-2">
+                        ★ Kern-Persona / Hauptnutzer
+                    </span>
+                    <div class="flex items-center gap-4 mb-3">
+                        <img src="assets/images/player_lukas.jpg" class="w-14 h-14 rounded-full object-cover border-2 border-secondary flex-shrink-0" alt="Lukas Wallner">
+                        <div>
+                            <span class="font-bold text-white text-base group-hover:text-secondary transition-colors block">Lukas Wallner (16)</span>
+                            <span class="text-xs text-secondary font-mono uppercase tracking-wider font-semibold">U17-Mittelfeldspieler</span>
+                            <span class="block text-[10px] text-accent font-medium mt-0.5">Fokus: 10m Speed & Ausdauer</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Amateur-Nachwuchsspieler. Will Stammplatz sichern, +0.2s im Antritt gewinnen und klare Spieltags-Ernährung erhalten.
+                    </p>
+                </a>
+
+                <!-- Quick Card: David Steiner -->
+                <a href="#persona-david" class="bg-surface rounded-2xl p-6 border border-surfaceBorder hover:border-secondary transition-all shadow-lg group block transform hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-3">
+                        <img src="assets/images/player_david.jpg" class="w-14 h-14 rounded-full object-cover border-2 border-secondary/60 flex-shrink-0" alt="David Steiner">
+                        <div>
+                            <span class="font-bold text-white text-base group-hover:text-secondary transition-colors block">David Steiner (19)</span>
+                            <span class="text-xs text-secondary font-mono uppercase tracking-wider font-semibold">Amateurstürmer</span>
+                            <span class="block text-[10px] text-accent font-medium mt-0.5">Fokus: 5m Antritt & Reaktivkraft</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Kampfmannschaft Bezirksliga. Braucht verletzungsfreie Muskelmasse, In-Season Belastungssteuerung und Sprintanalyse.
+                    </p>
+                </a>
+            </div>
+        </section>
+
+        <div class="border-t border-surfaceBorder"></div>
+
+        <!-- Detailed Personas Dossiers -->
+        <div class="space-y-24">
+
+            <!-- PERSONA 1: THOMAS EDER (COACH & ADMIN) -->
+            <section id="persona-thomas" class="bg-surface rounded-3xl shadow-xl border border-surfaceBorder overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    <!-- Left: Profile Info -->
+                    <div class="lg:col-span-4 bg-primary/60 border-r border-surfaceBorder p-8 lg:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="w-full aspect-square rounded-2xl overflow-hidden mb-6 shadow-inner border border-surfaceBorder">
+                                <img src="assets/images/coach_thomas.jpg" alt="Thomas Eder" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h2 class="text-2xl font-serif font-black text-white">Thomas Eder</h2>
+                                <span class="bg-secondary text-primary text-[10px] font-black uppercase px-2 py-0.5 rounded-full">Coach & Admin</span>
+                            </div>
+                            <div class="text-xs text-secondary font-mono uppercase tracking-wider mb-6">Gründer • Dipl. Fitnessinstruktor (18 J.)</div>
+
+                            <div class="space-y-3 text-xs text-slate-400 mb-6">
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Alter</span>
+                                    <span class="font-bold text-white">18 Jahre</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Qualifikation</span>
+                                    <span class="font-bold text-white">Staatl. zert. Fitnessinstruktor</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Standort</span>
+                                    <span class="font-bold text-white">Wien, Österreich</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Social Media</span>
+                                    <span class="font-bold text-secondary">@fieldready.coach</span>
+                                </div>
+                            </div>
+
+                            <blockquote class="text-base italic font-serif text-slate-200 border-l-2 border-secondary pl-3 mb-6">
+                                „Ich will Spielern nicht nur Hütchen aufstellen, sondern Athleten formen, die in der 85. Minute noch das Spiel entscheiden.“
+                            </blockquote>
+                        </div>
+                        <p class="text-xs text-slate-500">
+                            Thomas verbindet sportwissenschaftliches Know-how mit fußballspezifischem Training und baut eine persönliche Coaching-Brand auf.
+                        </p>
+                    </div>
+
+                    <!-- Right: Strategy, Goals & Empathy Map -->
+                    <div class="lg:col-span-8 p-8 lg:p-10 space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Goals -->
+                            <div>
+                                <h3 class="flex items-center gap-2 font-bold text-white text-base mb-3">
+                                    <span class="bg-accent/20 text-accent p-1.5 rounded-lg text-xs">🎯</span>
+                                    Spezifische Ziele
+                                </h3>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> Aufbau eines skalierbaren 1:many und 1:1 Coaching-Angebots.</li>
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> Betreuung von 50+ Spielern ohne Zeitkollaps durch standardisierte Workflows.</li>
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> Etablierung einer starken Personal Brand auf TikTok und Instagram.</li>
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> Hohe Retention durch sichtbare Sprint- und Kraftdaten der Schützlinge.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Frustrations -->
+                            <div>
+                                <h3 class="flex items-center gap-2 font-bold text-white text-base mb-3">
+                                    <span class="bg-rose-500/20 text-rose-400 p-1.5 rounded-lg text-xs">⚠️</span>
+                                    Top 3 Frustrationen
+                                </h3>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> <strong>Zeitfresser WhatsApp & Excel:</strong> Manuelle Planerstellung und Nachrichtenschreiben fressen jeden Abend 3 Stunden.</li>
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> <strong>Spieler springen ab:</strong> Wenn Athleten nach 2 Wochen keine messbaren Zahlen sehen, sinkt die Compliance.</li>
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> <strong>Alters-Vorurteil:</strong> Mit 18 Jahren muss Thomas seine Kompetenz gegenüber Eltern und älteren Trainern doppelt beweisen.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Empathy Map Accordion -->
+                        <div>
+                            <h3 class="font-serif font-bold text-white mb-3 text-base flex items-center gap-2">
+                                <span>🧠 Empathy Map: Thomas Eder</span>
+                            </h3>
+                            <div class="space-y-2 text-xs">
+                                <details class="group rounded-xl overflow-hidden border border-blue-900/40 bg-blue-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-blue-300 hover:bg-blue-900/30">
+                                        <span>💭 Denkt (Thoughts)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• „Nehmen mich die Spieler trotz meines jungen Alters voll ernst?“</p>
+                                        <p>• „Wenn Lukas seine Sprintzeit um 0.2 Sekunden verbessert, spricht sich das sofort im Verein herum.“</p>
+                                        <p>• „Ich brauche eine Plattform, die mir das Auswerten von Videos abnimmt.“</p>
+                                    </div>
+                                </details>
+
+                                <details class="group rounded-xl overflow-hidden border border-rose-900/40 bg-rose-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-rose-300 hover:bg-rose-900/30">
+                                        <span>❤️ Fühlt (Feelings)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• Große Leidenschaft und Antrieb, den Nachwuchsfußball moderner zu gestalten.</p>
+                                        <p>• Druck, jedem Schützling innerhalb von 24 Stunden Video-Feedback zu liefern.</p>
+                                        <p>• Stolz, wenn ein betreuter Spieler den Sprung in die Startelf schafft.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group rounded-xl overflow-hidden border border-emerald-900/40 bg-emerald-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-emerald-300 hover:bg-emerald-900/30">
+                                        <span>💬 Sagt (Sayings)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• „Die meisten Jugendspieler trainieren im Fitnessstudio komplett falsch für Fußball.“</p>
+                                        <p>• „Krafttraining macht dich nicht langsam – falsches Krafttraining macht dich langsam.“</p>
+                                    </div>
+                                </details>
+
+                                <details class="group rounded-xl overflow-hidden border border-amber-900/40 bg-amber-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-amber-300 hover:bg-amber-900/30">
+                                        <span>🏃 Tut (Actions)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• Produziert täglich kurze Lehr-Reels und Sprint-Tipps auf TikTok.</p>
+                                        <p>• Analysiert Kniebeugen- und Antrittsvideos in Zeitlupe.</p>
+                                        <p>• Passt Periodisierungspläne an Meisterschafts-Wochenenden an.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+
+                        <!-- JTBD -->
+                        <div class="bg-primary/40 rounded-2xl p-4 border border-surfaceBorder text-xs">
+                            <span class="font-bold text-secondary uppercase tracking-wider block mb-2">Jobs to be Done (JTBD)</span>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-slate-300">
+                                <div><strong>Funktional:</strong> Trainingspläne per 1-Klick an 50 Spieler zuweisen und Videos screenen.</div>
+                                <div><strong>Emotional:</strong> Als kompetenter, professioneller Fachcoach respektiert werden.</div>
+                                <div><strong>Sozial:</strong> Eine florierende Brand und wirtschaftliche Unabhängigkeit aufbauen.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- PERSONA 2: LUKAS WALLNER (HAUPTNUTZER & KERN-PERSONA) -->
+            <section id="persona-lukas" class="bg-surface rounded-3xl shadow-xl border-2 border-secondary overflow-hidden neon-glow">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    <!-- Left: Profile Info -->
+                    <div class="lg:col-span-4 bg-primary/80 border-r border-surfaceBorder p-8 lg:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="w-full aspect-square rounded-2xl overflow-hidden mb-6 shadow-inner border border-secondary">
+                                <img src="assets/images/player_lukas.jpg" alt="Lukas Wallner" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h2 class="text-2xl font-serif font-black text-white">Lukas Wallner</h2>
+                                <span class="bg-secondary text-primary text-[10px] font-black uppercase px-2 py-0.5 rounded-full">★ Kern-Persona</span>
+                            </div>
+                            <div class="text-xs text-secondary font-mono uppercase tracking-wider mb-6">U17 Mittelfeldspieler (16 J.)</div>
+
+                            <div class="space-y-3 text-xs text-slate-400 mb-6">
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Alter</span>
+                                    <span class="font-bold text-white">16 Jahre</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Position</span>
+                                    <span class="font-bold text-white">Zentrales Mittelfeld (ZM / Box-to-Box)</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Aktueller Verein</span>
+                                    <span class="font-bold text-white">SV Hallwang U17 Leistungsklasse</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Nutzungsverhalten</span>
+                                    <span class="font-bold text-secondary">Smartphone-Native (TikTok, IG, WhatsApp)</span>
+                                </div>
+                            </div>
+
+                            <blockquote class="text-base italic font-serif text-white border-l-2 border-secondary pl-3 mb-6">
+                                „Ich will der Schnellste auf dem Platz sein und ab Minute 75 noch jeden Ball ablaufen können!“
+                            </blockquote>
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            Lukas träumt vom Aufstieg in die Kampfmannschaft. Er ist hochmotiviert, aber verunsichert über das richtige Athletiktraining.
+                        </p>
+                    </div>
+
+                    <!-- Right: Strategy, Goals & Empathy Map -->
+                    <div class="lg:col-span-8 p-8 lg:p-10 space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Goals -->
+                            <div>
+                                <h3 class="flex items-center gap-2 font-bold text-white text-base mb-3">
+                                    <span class="bg-accent/20 text-accent p-1.5 rounded-lg text-xs">🎯</span>
+                                    Spezifische Ziele
+                                </h3>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> <strong>+0.2s im 10m/30m-Antritt:</strong> Erster Antritt muss explodieren, um Gegenspieler im Mittelfeld zu distanzieren.</li>
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> <strong>90-Minuten Power:</strong> Box-to-Box Kondition ohne Laktat-Einbruch in der Schlussphase.</li>
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> <strong>Zweikampfhärte:</strong> Physische Robustheit gegen körperlich stärkere Gegenspieler.</li>
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> <strong>Matchday-Ernährung:</strong> Wissen, was 3h vor Anpfiff gegessen wird, um Magenkrämpfe zu vermeiden.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Frustrations -->
+                            <div>
+                                <h3 class="flex items-center gap-2 font-bold text-white text-base mb-3">
+                                    <span class="bg-rose-500/20 text-rose-400 p-1.5 rounded-lg text-xs">⚠️</span>
+                                    Top 3 Frustrationen (Schmerzpunkte)
+                                </h3>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> <strong>1. Kein Athletikplan im Verein:</strong> Vereinstrainer macht nur Spielformen; Lukas weiß im Fitnessstudio nicht, welche Übungen Fußballern helfen.</li>
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> <strong>2. Motivation bricht ohne Feedback ein:</strong> Unstrukturierte YouTube/TikTok-Workouts bringen keinen sichtbaren Fortschritt; niemand kontrolliert seine Technik.</li>
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> <strong>3. Unbezahlbare Trainer:</strong> Ein 1:1 Personal Trainer kostet 80–120 € pro Stunde – unerschwinglich vom Taschengeld.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Empathy Map Accordion -->
+                        <div>
+                            <h3 class="font-serif font-bold text-white mb-3 text-base flex items-center gap-2">
+                                <span>🧠 Empathy Map: Lukas Wallner</span>
+                            </h3>
+                            <div class="space-y-2 text-xs">
+                                <details open class="group rounded-xl overflow-hidden border border-blue-900/40 bg-blue-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-blue-300 hover:bg-blue-900/30">
+                                        <span>💭 Denkt (Thoughts)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• „Mein Konkurrent im Team ist körperlich weiter als ich. Wenn ich nicht zulege, sitze ich Samstag auf der Bank.“</p>
+                                        <p>• „Ich will endlich einen klaren Trainingsplan auf dem Handy, den ich einfach in 35 Minuten im Gym abarbeiten kann.“</p>
+                                        <p>• „Hoffentlich machen mich Kniebeugen nicht unbeweglich und schwerfällig.“</p>
+                                    </div>
+                                </details>
+
+                                <details class="group rounded-xl overflow-hidden border border-rose-900/40 bg-rose-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-rose-300 hover:bg-rose-900/30">
+                                        <span>❤️ Fühlt (Feelings)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• Ehrgeizig und hungrig, sich zu beweisen (Vorbilder: Bellingham, Musiala).</p>
+                                        <p>• Frustration bei Niederlagen und wenn ihm der Trainer mangelnde Robustheit vorwirft.</p>
+                                        <p>• Stolz und Selbstvertrauen, wenn er seine Sprintzeiten schwarz auf weiß sinken sieht.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group rounded-xl overflow-hidden border border-emerald-900/40 bg-emerald-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-emerald-300 hover:bg-emerald-900/30">
+                                        <span>💬 Sagt (Sayings)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• „Was genau soll ich zwei Stunden vor dem Spiel frühstücken, damit ich keine Seitenstiche kriege?“</p>
+                                        <p>• „Trainer, ich zieh nach dem Training noch ein paar Sprints durch!“</p>
+                                    </div>
+                                </details>
+
+                                <details class="group rounded-xl overflow-hidden border border-amber-900/40 bg-amber-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-amber-300 hover:bg-amber-900/30">
+                                        <span>🏃 Tut (Actions)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• Schaut TikTok-Drills auf dem Weg zum Sportplatz an.</p>
+                                        <p>• Lädt seine 10m-Sprintzeit in die Field Ready App hoch.</p>
+                                        <p>• Trinkt vor dem Spiel Thomas' empfohlenen Elektrolyt-Shake.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+
+                        <!-- JTBD -->
+                        <div class="bg-primary/40 rounded-2xl p-4 border border-secondary/40 text-xs">
+                            <span class="font-bold text-secondary uppercase tracking-wider block mb-2">Jobs to be Done (JTBD)</span>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-slate-300">
+                                <div><strong>Funktional:</strong> Positionsspezifisches Workout in 35 Min ohne langes Nachdenken absolvieren.</div>
+                                <div><strong>Emotional:</strong> Sich am Spieltag mental und physisch überlegen fühlen.</div>
+                                <div><strong>Sozial:</strong> Anerkennung von Mitspielern und Trainer für seine auffällige Spritzigkeit.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- PERSONA 3: DAVID STEINER (AMATEURSTÜRMER) -->
+            <section id="persona-david" class="bg-surface rounded-3xl shadow-xl border border-surfaceBorder overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    <!-- Left: Profile Info -->
+                    <div class="lg:col-span-4 bg-primary/60 border-r border-surfaceBorder p-8 lg:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="w-full aspect-square rounded-2xl overflow-hidden mb-6 shadow-inner border border-surfaceBorder">
+                                <img src="assets/images/player_david.jpg" alt="David Steiner" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h2 class="text-2xl font-serif font-black text-white">David Steiner</h2>
+                                <span class="bg-accent text-primary text-[10px] font-black uppercase px-2 py-0.5 rounded-full">Amateur-Stürmer</span>
+                            </div>
+                            <div class="text-xs text-secondary font-mono uppercase tracking-wider mb-6">Mittelstürmer (19 J.) • Student</div>
+
+                            <div class="space-y-3 text-xs text-slate-400 mb-6">
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Alter</span>
+                                    <span class="font-bold text-white">19 Jahre</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Position</span>
+                                    <span class="font-bold text-white">Mittelstürmer (ST) / Neuner</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Liga</span>
+                                    <span class="font-bold text-white">1. Kampfmannschaft Bezirksliga</span>
+                                </div>
+                                <div class="flex justify-between border-b border-surfaceBorder pb-2">
+                                    <span>Fokus</span>
+                                    <span class="font-bold text-secondary">5m Tiefenantritt & Sprungkraft</span>
+                                </div>
+                            </div>
+
+                            <blockquote class="text-base italic font-serif text-slate-200 border-l-2 border-secondary pl-3 mb-6">
+                                „Auf den ersten drei Metern fällt die Entscheidung – ich brauche maximale Explosivität ohne Muskelzerrungen.“
+                            </blockquote>
+                        </div>
+                        <p class="text-xs text-slate-500">
+                            David spielt im Erwachsenenbereich. Er will den Schritt in die Landesliga schaffen und sucht datenbasierte Leistungsdiagnostik.
+                        </p>
+                    </div>
+
+                    <!-- Right: Strategy, Goals & Empathy Map -->
+                    <div class="lg:col-span-8 p-8 lg:p-10 space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Goals -->
+                            <div>
+                                <h3 class="flex items-center gap-2 font-bold text-white text-base mb-3">
+                                    <span class="bg-accent/20 text-accent p-1.5 rounded-lg text-xs">🎯</span>
+                                    Spezifische Ziele
+                                </h3>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> Maximaler 5m-Tiefenantritt aus dem Stand und der Drehung.</li>
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> Gesteigerte Reaktivkraft (Vertical Jump) für Lufthoheit im Strafraum.</li>
+                                    <li class="flex gap-2"><span class="text-accent font-bold">✓</span> 100% verletzungsfreie Saison ohne Hamstring-Ausfälle.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Frustrations -->
+                            <div>
+                                <h3 class="flex items-center gap-2 font-bold text-white text-base mb-3">
+                                    <span class="bg-rose-500/20 text-rose-400 p-1.5 rounded-lg text-xs">⚠️</span>
+                                    Top 3 Frustrationen
+                                </h3>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> Wiederkehrende Oberschenkel-Zerrungen bei Maximalsprints in der 80. Minute.</li>
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> Schwere Beine am Spieltag durch falsche Belastungssteuerung unter der Woche.</li>
+                                    <li class="flex gap-2"><span class="text-rose-400 font-bold">!</span> Schwindendes Zeitfenster für den Karrieresprung mit 19/20 Jahren.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Empathy Map Accordion -->
+                        <div>
+                            <h3 class="font-serif font-bold text-white mb-3 text-base flex items-center gap-2">
+                                <span>🧠 Empathy Map: David Steiner</span>
+                            </h3>
+                            <div class="space-y-2 text-xs">
+                                <details class="group rounded-xl overflow-hidden border border-blue-900/40 bg-blue-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-blue-300 hover:bg-blue-900/30">
+                                        <span>💭 Denkt (Thoughts)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• „Ich muss jetzt mein Maximum herausholen, bevor mein Studium zu viel Zeit frisst.“</p>
+                                        <p>• „Ich brauche Periodisierung, die sich nicht mit meinen 2 Vereinstrainings beißt.“</p>
+                                    </div>
+                                </details>
+
+                                <details class="group rounded-xl overflow-hidden border border-rose-900/40 bg-rose-950/20">
+                                    <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-bold text-rose-300 hover:bg-rose-900/30">
+                                        <span>❤️ Fühlt (Feelings)</span>
+                                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </summary>
+                                    <div class="px-4 py-3 text-slate-300 space-y-1 bg-black/20">
+                                        <p>• Ehrgeizig, fokussiert, aber frustriert bei Muskelverletzungen.</p>
+                                        <p>• Hunger nach Toren und Stammplatz in der höheren Spielklasse.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+
+                        <!-- JTBD -->
+                        <div class="bg-primary/40 rounded-2xl p-4 border border-surfaceBorder text-xs">
+                            <span class="font-bold text-secondary uppercase tracking-wider block mb-2">Jobs to be Done (JTBD)</span>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-slate-300">
+                                <div><strong>Funktional:</strong> Reaktivkraft und 5m Sprintzeit mit Video-Feedback von Thomas optimieren.</div>
+                                <div><strong>Emotional:</strong> Vertrauen in den eigenen Körper ohne Angst vor Muskelzerrungen.</div>
+                                <div><strong>Sozial:</strong> Top-Torschütze der Liga werden und Scouts überzeugen.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-surfaceBorder py-8 text-slate-500 text-xs">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <strong>FIELD READY</strong> • Gegründet von Thomas Eder (18), Dipl. Fitnessinstruktor & Fußballspezialist.
+            </div>
+            <div>
+                <a href="journeys.html" class="text-secondary hover:underline">Weiter zu den Customer Journeys →</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

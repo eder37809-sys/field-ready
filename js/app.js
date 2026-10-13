@@ -1,6 +1,6 @@
 /* ==========================================================================
    FIELD READY - INTERACTIVE CONTROLLER
-   Matura-Projekt von Thomas Eder
+   Gegründet von Thomas Eder
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated User Flows - Field Ready | Strategie Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#080A0D',      /* Deep Pitch Black */
+                        secondary: '#CCFF00',    /* Electric Volt Neon */
+                        secondaryHover: '#B5E600',
+                        accent: '#00E575',       /* Turf Green */
+                        background: '#0D1117',   /* Dark Slate */
+                        surface: '#141922',      /* Elevated Card */
+                        surfaceBorder: '#232B38',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Montserrat', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        };
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                darkMode: true,
+                background: '#080A0D',
+                primaryColor: '#141922',
+                primaryTextColor: '#FFFFFF',
+                primaryBorderColor: '#CCFF00',
+                lineColor: '#CCFF00',
+                secondaryColor: '#00E575',
+                tertiaryColor: '#1A212D'
+            }
+        });
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .neon-glow { box-shadow: 0 0 25px rgba(204, 255, 0, 0.25); }
+    </style>
+</head>
+
+<body class="bg-background text-slate-200 antialiased flex flex-col min-h-screen">
+
+    <!-- Header Navigation -->
+    <header class="bg-surface/90 backdrop-blur-md border-b border-surfaceBorder sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-primary border-2 border-secondary flex items-center justify-center neon-glow">
+                    <svg viewBox="0 0 40 40" width="24" height="24" fill="none">
+                        <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" stroke="#CCFF00" stroke-width="2.5" fill="#0A0E14" />
+                        <path d="M14 13 H28 L23 20 H18 L15 28 H10 Z" fill="#CCFF00" />
+                        <path d="M22 20 H28 L23 28 H17 Z" fill="#FFFFFF" opacity="0.85" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-serif font-black tracking-tight text-white text-xl">FIELD READY</span>
+                    <span class="hidden md:inline text-xs text-secondary font-mono ml-2 uppercase">User Flows & Workflows</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-slate-300 hover:text-secondary transition-colors font-medium">Dashboard</a>
+                
+                <div class="relative group">
+                    <a href="user-flows.html" class="text-secondary font-bold border-b-2 border-secondary pb-1 flex items-center gap-1 py-2">
+                        Konzept & UX
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute left-0 mt-1 w-64 bg-surface border border-surfaceBorder rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-3">
+                        <a href="personas.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            👥 Zielgruppen & 3 Personas
+                        </a>
+                        <a href="journeys.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            🗺️ Customer Journeys (Phasen & Prompts)
+                        </a>
+                        <a href="user-flows.html" class="block px-4 py-2.5 text-sm text-secondary bg-slate-800/80 font-bold">
+                            🔀 User Flows & Workflows (Mermaid)
+                        </a>
+                    </div>
+                </div>
+
+                <a href="design-system.html" class="text-slate-300 hover:text-secondary transition-colors font-medium">Design System</a>
+                <a href="journeys.html#figma-make" class="bg-secondary/10 border border-secondary/30 text-secondary hover:bg-secondary hover:text-primary px-4 py-1.5 rounded-full text-xs font-bold transition-all">
+                    ⚡ Figma Make Prompts
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 py-12">
+        <div class="mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-secondary">Schritt 1: Informationsarchitektur & Flows</span>
+            <h1 class="text-4xl md:text-5xl font-serif font-black text-white mt-2 mb-4 uppercase tracking-tight">Integrated User Flows</h1>
+            <div class="w-20 h-1.5 bg-secondary rounded"></div>
+            <p class="mt-4 text-base text-slate-400 max-w-3xl leading-relaxed">
+                Visualisierung der integrierten Nutzerpfade – vom ersten Social-Media Touchpoint bis zur täglichen Workout-Routine und Matchday-Conversion.
+            </p>
+        </div>
+
+        <!-- Einleitung: Die Logik hinter den Pfaden (inspiriert von langerstrategy/user-flows.html) -->
+        <div class="mb-16 grid md:grid-cols-2 gap-10 items-start">
+            <div class="bg-surface rounded-2xl p-6 border border-surfaceBorder">
+                <h2 class="text-xl font-serif font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-secondary">⚡</span> Vom Erleben zum Handeln: Die Logik hinter den Pfaden
+                </h2>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    Während unsere <strong>Customer Journeys</strong> das emotionale Erlebnis und die Schmerzpunkte von Lukas, David und Thomas definieren, übersetzen die <strong>User Flows</strong> diese Vision in belastbare technische Klickpfade. Hier wird festgelegt, wie sich der Athlet durch die Anwendung bewegt – ohne Reibungsverluste und ohne Überforderung.
+                </p>
+            </div>
+            <div class="bg-surface rounded-2xl p-6 border border-surfaceBorder">
+                <h2 class="text-xl font-serif font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-accent">🎯</span> Dynamisches Kontext-Routing
+                </h2>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    Das System unterscheidet intelligent zwischen zwei zentralen Pfaden: 
+                    Dem <strong>Performance-Pfad</strong> für den Spieler (Fokus: Schnelligkeit, 1-Click Checklisten, intuitive Visuals) und dem <strong>Management-Pfad</strong> für Coach Thomas (Fokus: 1-Klick Plan-Push, Video-Review Queue).
+                </p>
+            </div>
+        </div>
+
+        <!-- Strategische Flow-Logik & Routing-Vergleich -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-serif font-bold text-white mb-6 text-center">Strategische Flow-Logik & Routing</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Athlete Routing -->
+                <div class="bg-secondary/5 rounded-3xl p-8 border border-secondary/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-secondary/20 text-secondary p-2.5 rounded-xl text-xl">⚡</span>
+                        <div>
+                            <h4 class="font-bold text-white text-base">Athlete Performance Routing (Lukas & David)</h4>
+                            <span class="text-xs text-secondary font-mono">Mobile-First • Niedrige kognitive Last</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mb-6">Optimiert für Athleten vor, während und nach dem Training auf dem Sportplatz oder im Gym.</p>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <span class="text-secondary font-bold">•</span>
+                            <strong>3-Step Quick Onboarding:</strong> Profilerstellung und Positionswahl in unter 60 Sekunden.
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-secondary font-bold">•</span>
+                            <strong>1-Click Workout-Tracking:</strong> Jede Übung kann mit einem Fingertipp abgehakt werden.
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-secondary font-bold">•</span>
+                            <strong>Matchday Countdown:</strong> Am Spieltag schrumpft das UI auf den Ernährungs- und Vorbereitungs-Countdown.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coach Routing -->
+                <div class="bg-accent/5 rounded-3xl p-8 border border-accent/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-accent/20 text-accent p-2.5 rounded-xl text-xl">👨‍💼</span>
+                        <div>
+                            <h4 class="font-bold text-white text-base">Coach Management Routing (Thomas Eder)</h4>
+                            <span class="text-xs text-accent font-mono">Admin-Cockpit • Hohe Skalierbarkeit</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mb-6">Optimiert für die Betreuung von 50+ Spielern in minimaler täglicher Bildschirmzeit.</p>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <span class="text-accent font-bold">•</span>
+                            <strong>Athleten-Status Ampel:</strong> Grün = Trainiert, Gelb = Wartet auf Feedback, Rot = 3 Tage inaktiv.
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-accent font-bold">•</span>
+                            <strong>Video-Review Player:</strong> Slow-Motion Analyse mit Zeichen-Overlay und Sprachnachricht.
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-accent font-bold">•</span>
+                            <strong>1-Click Plan-Push:</strong> Modulare Trainingsblöcke mit einem Klick an die Zielgruppe pushen.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MERMAID.JS DIAGRAMM 1: DER INTEGRIERTE USER FLOW (ATHLET) -->
+        <section class="mb-16">
+            <div class="bg-surface rounded-3xl shadow-2xl border border-secondary/50 p-6 md:p-10 neon-glow">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-surfaceBorder pb-4">
+                    <div>
+                        <span class="text-xs font-mono text-secondary uppercase font-bold">Mermaid.js Flowchart • Hauptnutzer</span>
+                        <h3 class="text-2xl font-serif font-black text-white">Integrierter User Flow: Lukas Wallner (Athlete Journey)</h3>
+                    </div>
+                    <button onclick="navigator.clipboard.writeText(document.getElementById('mermaid-athlete-code').innerText); alert('Mermaid.js Code kopiert!');" class="bg-secondary text-primary hover:bg-secondaryHover px-4 py-2 rounded-xl text-xs font-black transition-all shadow-md">
+                        📋 Mermaid Code kopieren
+                    </button>
+                </div>
+
+                <!-- Mermaid Render Container -->
+                <div class="mermaid text-center overflow-x-auto py-6" id="mermaid-athlete-diagram">
+flowchart TD
+    subgraph P1["Phase 1: Entdeckung (Entry)"]
+        A1["TikTok / Instagram Reel<br/>@fieldready.coach"] --> A2["Mobile Landingpage<br/>Value Prop & Proof (+0.3s)"]
+    end
+
+    subgraph P2["Phase 2: Onboarding & Profil"]
+        A2 --> B1["Klick 'Jetzt starten'"]
+        B1 --> B2["Schritt 1: Willkommen & Mission"]
+        B2 --> B3["Schritt 2: Ziele wählen<br/>(10m Speed, Zweikampf, Ausdauer)"]
+        B3 --> B4["Schritt 3: Spielerprofil<br/>(ZM, 16 J., SV Hallwang U17)"]
+        B4 --> B5["Magic Moment ✨:<br/>Plan-Generierung durch Coach Thomas"]
+    end
+
+    subgraph P3["Phase 3: Dashboard & Evaluation"]
+        B5 --> C1["Home Dashboard<br/>Streak: 14d | Ring: 75%"]
+        C1 --> C2{"Entscheidung: Was steht an?"}
+        C2 -->|Normaler Trainingstag| C3["Session öffnen:<br/>Explosivkraft Mittelfeld"]
+        C2 -->|Samstag Spieltag| C4["Matchday Countdown:<br/>Ernährungs-Timing"]
+    end
+
+    subgraph P4["Phase 4: Core Action (Workout)"]
+        C3 --> D1["Übungs-Checkliste (4 Drills)<br/>Trap Bar, 10m Sprints, Box-to-Box"]
+        D1 --> D2["1-Klick Abhaken & Checkmarks"]
+        D2 --> D3["Fortschrittsring schließt auf 100% ✨"]
+    end
+
+    subgraph P5["Phase 5: Coach Interaktion & Retention"]
+        D3 --> E1["Video-Upload zur Technikanalyse<br/>(sprint_start.mp4)"]
+        E1 --> E2["Coach Thomas Video-Feedback &<br/>Audio-Voice-Note im Chat"]
+        E2 --> E3["Streak erhöht, Badge freigeschaltet<br/>'Speed Demon -0.11s'"]
+    end
+
+    classDef default fill:#141922,stroke:#232B38,stroke-width:1.5px,color:#FFFFFF;
+    classDef highlight fill:#1F2937,stroke:#CCFF00,stroke-width:2.5px,color:#CCFF00;
+    classDef accentNode fill:#112211,stroke:#00E575,stroke-width:2px,color:#00E575;
+
+    class B5,D3 highlight;
+    class E2,E3 accentNode;
+                </div>
+
+                <!-- Hidden Code Box for Copying -->
+                <pre class="hidden" id="mermaid-athlete-code">
+flowchart TD
+    subgraph P1["Phase 1: Entdeckung (Entry)"]
+        A1["TikTok / Instagram Reel<br/>@fieldready.coach"] --> A2["Mobile Landingpage<br/>Value Prop & Proof (+0.3s)"]
+    end
+
+    subgraph P2["Phase 2: Onboarding & Profil"]
+        A2 --> B1["Klick 'Jetzt starten'"]
+        B1 --> B2["Schritt 1: Willkommen & Mission"]
+        B2 --> B3["Schritt 2: Ziele wählen<br/>(10m Speed, Zweikampf, Ausdauer)"]
+        B3 --> B4["Schritt 3: Spielerprofil<br/>(ZM, 16 J., SV Hallwang U17)"]
+        B4 --> B5["Magic Moment ✨:<br/>Plan-Generierung durch Coach Thomas"]
+    end
+
+    subgraph P3["Phase 3: Dashboard & Evaluation"]
+        B5 --> C1["Home Dashboard<br/>Streak: 14d | Ring: 75%"]
+        C1 --> C2{"Entscheidung: Was steht an?"}
+        C2 -->|Normaler Trainingstag| C3["Session öffnen:<br/>Explosivkraft Mittelfeld"]
+        C2 -->|Samstag Spieltag| C4["Matchday Countdown:<br/>Ernährungs-Timing"]
+    end
+
+    subgraph P4["Phase 4: Core Action (Workout)"]
+        C3 --> D1["Übungs-Checkliste (4 Drills)<br/>Trap Bar, 10m Sprints, Box-to-Box"]
+        D1 --> D2["1-Klick Abhaken & Checkmarks"]
+        D2 --> D3["Fortschrittsring schließt auf 100% ✨"]
+    end
+
+    subgraph P5["Phase 5: Coach Interaktion & Retention"]
+        D3 --> E1["Video-Upload zur Technikanalyse<br/>(sprint_start.mp4)"]
+        E1 --> E2["Coach Thomas Video-Feedback &<br/>Audio-Voice-Note im Chat"]
+        E2 --> E3["Streak erhöht, Badge freigeschaltet<br/>'Speed Demon -0.11s'"]
+    end
+                </pre>
+            </div>
+        </section>
+
+        <!-- MERMAID.JS DIAGRAMM 2: DER COACH ADMIN FLOW -->
+        <section class="mb-20">
+            <div class="bg-surface rounded-3xl shadow-2xl border border-surfaceBorder p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-surfaceBorder pb-4">
+                    <div>
+                        <span class="text-xs font-mono text-accent uppercase font-bold">Mermaid.js Flowchart • Coach-Cockpit</span>
+                        <h3 class="text-2xl font-serif font-black text-white">Coach Workflow: Thomas Eder (Admin Queue & Plan-Push)</h3>
+                    </div>
+                </div>
+
+                <div class="mermaid text-center overflow-x-auto py-6" id="mermaid-coach-diagram">
+flowchart LR
+    subgraph T1["1. Dashboard-Status"]
+        CA1["Athleten-Übersicht<br/>(28 aktive Spieler)"] --> CA2{"Status-Check"}
+    end
+
+    subgraph T2["2. Triage & Review"]
+        CA2 -->|Video eingereicht| CB1["Review Queue öffnen<br/>(Lukas: sprint_start.mp4)"]
+        CA2 -->|Plan abgeschlossen| CB2["Plan-Upgrade fällig<br/>(David: Phase 2)"]
+    end
+
+    subgraph T3["3. Feedback & Push"]
+        CB1 --> CC1["Slow-Motion Player<br/>Zeichen-Overlay & Audio-Note"]
+        CB2 --> CC2["1-Klick Modul-Push:<br/>In-Season Explosivkraft"]
+    end
+
+    subgraph T4["4. Erfolg"]
+        CC1 --> CD1["Spieler erhält Push & Voice Note"]
+        CC2 --> CD1
+    end
+
+    classDef default fill:#141922,stroke:#232B38,stroke-width:1.5px,color:#FFFFFF;
+    classDef highlight fill:#112211,stroke:#00E575,stroke-width:2px,color:#00E575;
+    class CD1 highlight;
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-surfaceBorder py-8 text-slate-500 text-xs">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <strong>FIELD READY</strong> • Gegründet von Thomas Eder (18), Dipl. Fitnessinstruktor & Fußballspezialist.
+            </div>
+            <div>
+                <a href="design-system.html" class="text-secondary hover:underline">Weiter zum Design System →</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

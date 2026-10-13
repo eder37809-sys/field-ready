@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Journeys - Field Ready | Strategie Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#080A0D',      /* Deep Pitch Black */
+                        secondary: '#CCFF00',    /* Electric Volt Neon */
+                        secondaryHover: '#B5E600',
+                        accent: '#00E575',       /* Turf Green */
+                        background: '#0D1117',   /* Dark Slate */
+                        surface: '#141922',      /* Elevated Card */
+                        surfaceBorder: '#232B38',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Montserrat', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .neon-glow { box-shadow: 0 0 25px rgba(204, 255, 0, 0.25); }
+    </style>
+</head>
+
+<body class="bg-background text-slate-200 antialiased flex flex-col min-h-screen">
+
+    <!-- Header Navigation -->
+    <header class="bg-surface/90 backdrop-blur-md border-b border-surfaceBorder sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-primary border-2 border-secondary flex items-center justify-center neon-glow">
+                    <svg viewBox="0 0 40 40" width="24" height="24" fill="none">
+                        <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" stroke="#CCFF00" stroke-width="2.5" fill="#0A0E14" />
+                        <path d="M14 13 H28 L23 20 H18 L15 28 H10 Z" fill="#CCFF00" />
+                        <path d="M22 20 H28 L23 28 H17 Z" fill="#FFFFFF" opacity="0.85" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-serif font-black tracking-tight text-white text-xl">FIELD READY</span>
+                    <span class="hidden md:inline text-xs text-secondary font-mono ml-2 uppercase">Customer Journeys</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-slate-300 hover:text-secondary transition-colors font-medium">Dashboard</a>
+                
+                <div class="relative group">
+                    <a href="journeys.html" class="text-secondary font-bold border-b-2 border-secondary pb-1 flex items-center gap-1 py-2">
+                        Konzept & UX
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute left-0 mt-1 w-64 bg-surface border border-surfaceBorder rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-3">
+                        <a href="personas.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            👥 Zielgruppen & 3 Personas
+                        </a>
+                        <a href="journeys.html" class="block px-4 py-2.5 text-sm text-secondary bg-slate-800/80 font-bold">
+                            🗺️ Customer Journeys (Phasen & Prompts)
+                        </a>
+                        <a href="user-flows.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            🔀 User Flows & Workflows (Mermaid)
+                        </a>
+                    </div>
+                </div>
+
+                <a href="design-system.html" class="text-slate-300 hover:text-secondary transition-colors font-medium">Design System</a>
+                <a href="#figma-make" class="bg-secondary text-primary px-4 py-1.5 rounded-full text-xs font-bold transition-all shadow-md neon-glow">
+                    ⚡ Figma Make Prompts
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 py-12">
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-secondary">Schritt 1: Strategie & Customer Journey</span>
+            <h1 class="text-4xl md:text-5xl font-serif font-black text-white mt-2 mb-4 uppercase tracking-tight">Customer Journey Map</h1>
+            <div class="w-20 h-1 bg-secondary mx-auto rounded"></div>
+            <p class="mt-4 text-slate-400 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+                Der detaillierte Ablauf von <strong>„Entdeckung“</strong> über <strong>„Onboarding“</strong> bis zum <strong>„Kern-Nutzen“</strong>. Erfasst, was der User denkt und fühlt, welche Touchpoints/Screens benötigt werden und wo der <strong>Magic Moment ✨</strong> entsteht.
+            </p>
+        </div>
+
+        <!-- Quick-Nav Übersicht (inspiriert von langerstrategy/journeys.html) -->
+        <div class="mb-16 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <a href="#journey-lukas" class="flex items-center gap-4 bg-surface rounded-xl p-4 border-2 border-secondary/70 shadow-lg hover:border-secondary transition-all group neon-glow">
+                <img src="assets/images/player_lukas.jpg" class="w-12 h-12 rounded-full object-cover flex-shrink-0 border border-secondary" alt="Lukas">
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-white text-sm">Lukas (16)</span>
+                        <span class="bg-secondary text-primary text-[9px] font-black uppercase px-1.5 py-0.2 rounded-full">Kern-Journey</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Mittelfeld • Entdeckung &rarr; Matchday</p>
+                    <p class="text-[11px] text-secondary font-mono mt-0.5">1.1 Standard · 1.2 Matchday Edge Case</p>
+                </div>
+            </a>
+
+            <a href="#journey-thomas" class="flex items-center gap-4 bg-surface rounded-xl p-4 border border-surfaceBorder hover:border-secondary transition-all group">
+                <img src="assets/images/coach_thomas.jpg" class="w-12 h-12 rounded-full object-cover flex-shrink-0 border border-surfaceBorder" alt="Thomas">
+                <div class="flex-1 min-w-0">
+                    <span class="font-bold text-white text-sm">Thomas Eder (18)</span>
+                    <p class="text-xs text-slate-400">Coach / Admin • Skalierbare Betreuung</p>
+                    <p class="text-[11px] text-slate-400 font-mono mt-0.5">2.1 Plan-Push · 2.2 Video-Feedback</p>
+                </div>
+            </a>
+
+            <a href="#figma-make" class="flex items-center gap-4 bg-surface rounded-xl p-4 border border-surfaceBorder hover:border-accent transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-accent/20 border border-accent text-accent flex items-center justify-center text-xl font-bold flex-shrink-0">
+                    ⚡
+                </div>
+                <div class="flex-1 min-w-0">
+                    <span class="font-bold text-accent text-sm">Figma Make</span>
+                    <p class="text-xs text-slate-400">UI-Komponenten & Datenfelder</p>
+                    <p class="text-[11px] text-accent font-mono mt-0.5">Prompt-Fertiger Baustein</p>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- JOURNEY 1: LUKAS WALLNER (KERN-PERSONA) -->
+        <section id="journey-lukas" class="mb-20">
+            <div class="flex items-center gap-4 mb-8 border-b border-surfaceBorder pb-4">
+                <img src="assets/images/player_lukas.jpg" alt="Lukas Wallner" class="w-16 h-16 rounded-full object-cover border-2 border-secondary">
+                <div>
+                    <h2 class="text-2xl font-serif font-black text-white flex items-center gap-2">
+                        Persona 2: Lukas Wallner (16)
+                        <span class="bg-secondary text-primary text-xs font-black px-2.5 py-0.5 rounded-full">Kern-Persona / Hauptnutzer</span>
+                    </h2>
+                    <p class="text-xs text-slate-400">U17 Zentrales Mittelfeld • Fokus: 10m/30m Sprintspeed, 90-Minuten Power & Matchday-Nutrition</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Journey 1.1: Standard Journey -->
+                <div class="bg-surface rounded-2xl shadow-lg border border-surfaceBorder p-6 md:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-bold text-white">Journey 1.1: Vom Social-Zuschauer zum Matchday-Dominator</h3>
+                            <span class="bg-secondary/10 text-secondary border border-secondary/30 text-[10px] font-bold px-2 py-0.5 rounded-full">Standard</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+                            <strong>Ziel / Job-to-be-Done:</strong> Lukas will in 8 Wochen seine Sprintzeit um 0.2s verbessern, 90 Minuten durchhalten und sich den Stammplatz in der U17 sichern, ohne dafür hunderte Euro für einen Privattrainer auszugeben.
+                        </p>
+
+                        <!-- Timeline Phasen (border-l-2 genau wie auf langerstrategy) -->
+                        <ul class="space-y-6 mb-6 relative border-l-2 border-secondary/40 ml-3 pl-6">
+                            <!-- Phase 1: Entdeckung -->
+                            <li class="relative">
+                                <span class="absolute -left-[31px] bg-background border-2 border-secondary w-4 h-4 rounded-full"></span>
+                                <strong class="block text-white text-sm mb-1">Phase 1: Entdeckung (Awareness / Social-to-Web)</strong>
+                                <div class="text-xs text-slate-300 space-y-1">
+                                    <p><strong>User denkt / fühlt:</strong> „Auf TikTok sehe ich krasse Sprintdrills von Thomas Eder. Genau das fehlt mir in meinem Vereinstraining. Kann man das wirklich online lernen?“ (Neugier, Hoffnung, leichte Skepsis).</p>
+                                    <p><strong>Touchpoint / Screen:</strong> TikTok/Instagram Reel (`@fieldready.coach`) &rarr; Mobile Landingpage Hero mit Thomas' Vorstellung & Social Proof (+0.3s Sprintzeit).</p>
+                                </div>
+                            </li>
+
+                            <!-- Phase 2: Onboarding -->
+                            <li class="relative">
+                                <span class="absolute -left-[31px] bg-background border-2 border-secondary w-4 h-4 rounded-full"></span>
+                                <strong class="block text-white text-sm mb-1">Phase 2: Onboarding (Consideration & Profiling)</strong>
+                                <div class="text-xs text-slate-300 space-y-1">
+                                    <p><strong>User denkt / fühlt:</strong> „Endlich fragt mich jemand nach meiner Position und meinen Spieltagen, statt mir ein Standard-Template vorzuwerfen!“ (Erleichterung, Ernstgenommen-Fühlen).</p>
+                                    <p><strong>Touchpoint / Screen:</strong> 3-Step Interactive Onboarding Flow: (1) Willkommen & Mission, (2) Multiselect Zielauswahl (10m Sprint, Zweikampf, Ausdauer, Ernährung), (3) Spielerprofil (Position: ZM, Alter: 16, Liga: U17, Verein: SV Hallwang).</p>
+                                </div>
+                            </li>
+
+                            <!-- Phase 3: Kern-Nutzen -->
+                            <li class="relative">
+                                <span class="absolute -left-[31px] bg-background border-2 border-accent w-4 h-4 rounded-full"></span>
+                                <strong class="block text-accent text-sm mb-1">Phase 3: Kern-Nutzen (Core Action & Matchday Routine)</strong>
+                                <div class="text-xs text-slate-300 space-y-1">
+                                    <p><strong>User denkt / fühlt:</strong> „Ich weiß genau, was ich heute tun muss: 4 Übungen, 35 Minuten, klare Gewichte und Videoanleitung. Und wenn ich eine Frage habe, schicke ich Thomas ein Video.“ (Fokus, Tatendrang, sportliche Dominanz).</p>
+                                    <p><strong>Touchpoint / Screen:</strong> Home Dashboard mit 14-Tage-Streak, animiertem circular Fortschrittsring, Tages-Session „Explosivkraft & 10m Antritt“, Übungs-Checkliste mit 1-Klick „Erledigt“-Button und Coach-Chat Inbox.</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- Magic Moment Box (Callout wie auf langerstrategy) -->
+                        <div class="bg-secondary/10 border border-secondary/30 rounded-xl p-4 mb-4">
+                            <span class="text-xs font-bold uppercase text-secondary flex items-center gap-1 mb-1">
+                                <span>Magic Moment ✨</span>
+                            </span>
+                            <p class="text-xs text-slate-200 leading-relaxed">
+                                Nach dem ersten Workout hakt Lukas die 4. Übung ab. Der circular Progress Ring schließt sich auf <strong>100%</strong> mit haptischem Feedback und Coach Thomas sendet automatisch eine Audio-Voice-Note im Chat: <em>„Stark Lukas! Deine 10m-Sprintzeit ist auf 1.71s gesunken. Bleib heute bei der Regeneration dran – Samstag dominieren wir das Mittelfeld!“</em>
+                            </p>
+                            <p class="text-xs text-secondary mt-2">
+                                <strong>UX-Aha-Effekt:</strong> Lukas spürt, dass er nicht alleine trainiert, sondern ein echter Coach seinen Fortschritt sieht und anerkennt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Journey 1.2: Edge Case Journey -->
+                <div class="bg-surface rounded-2xl shadow-lg border border-surfaceBorder p-6 md:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-bold text-white">Journey 1.2: Matchday Edge Case: Magenkrämpfe & Seitenstiche</h3>
+                            <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full">Edge Case</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+                            <strong>Szenario:</strong> Lukas isst aus Bequemlichkeit 1,5 Stunden vor dem Samstagsspiel ein fettreiches Schnitzelsemmel. Ab Minute 20 plagen ihn schwere Beine und Seitenstiche. Er verliert das Vertrauen in seine Ausdauer.
+                        </p>
+
+                        <div class="mb-6 space-y-4">
+                            <div>
+                                <strong class="block text-white text-xs mb-1">Top 3 Schmerzpunkte in diesem Szenario:</strong>
+                                <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+                                    <li>Magenkrämpfe bei schnellen Richtungswechseln.</li>
+                                    <li>Fehlendes Gespür für Kohlenhydrat-Resorptionszeiten.</li>
+                                    <li>Leistungseinbruch ab Minute 60 im entscheidenden Spiel.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <strong class="block text-white text-xs mb-1">UX-Lösung in Field Ready:</strong>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    Die App schaltet am Freitagabend automatisch auf den <strong>Matchday-Modus</strong> um: Ein visueller Countdown-Timer („Noch 3,5 Stunden bis Anpfiff“) gibt genaue Mahlzeiten-Vorschläge (Reis mit Hähnchen oder Porridge mit Honig), erinnert an 500ml Elektrolyt-Zufuhr 60 Min vorher und blendet die Halbzeit-Strategie (1/2 Banane + Dextrose) ein.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Magic Moment Box Edge Case -->
+                        <div class="bg-emerald-950/20 border border-emerald-500/30 rounded-xl p-4 mb-4">
+                            <span class="text-xs font-bold uppercase text-accent flex items-center gap-1 mb-1">
+                                <span>Lösungs-Moment 🥗</span>
+                            </span>
+                            <p class="text-xs text-slate-200 leading-relaxed">
+                                Lukas folgt dem Matchday-Countdown. Im Spiel spürt er ab Minute 75 noch volle Beine, leitet den Siegtreffer ein und schickt Thomas danach ein Foto seines Recovery-Shakes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- JOURNEY 2: THOMAS EDER (COACH & ADMIN-SICHT) -->
+        <section id="journey-thomas" class="mb-20">
+            <div class="flex items-center gap-4 mb-8 border-b border-surfaceBorder pb-4">
+                <img src="assets/images/coach_thomas.jpg" alt="Thomas Eder" class="w-16 h-16 rounded-full object-cover border-2 border-secondary">
+                <div>
+                    <h2 class="text-2xl font-serif font-black text-white flex items-center gap-2">
+                        Persona 1: Thomas Eder (18)
+                        <span class="bg-surface text-slate-300 border border-surfaceBorder text-xs font-bold px-2.5 py-0.5 rounded-full">Coach & Admin</span>
+                    </h2>
+                    <p class="text-xs text-slate-400">Head Coach & Gründer • Fokus: Skalierbare Betreuung von 50+ Athleten, 1-Klick Plan-Push & Videoanalyse</p>
+                </div>
+            </div>
+
+            <div class="bg-surface rounded-2xl shadow-lg border border-surfaceBorder p-6 md:p-8">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-lg font-bold text-white">Journey 2.1: 1-Klick Trainingsplan-Zuweisung & Video-Review Queue</h3>
+                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full">Admin Workflow</span>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 text-xs text-slate-300">
+                    <div class="bg-primary/50 p-4 rounded-xl border border-surfaceBorder">
+                        <strong class="block text-secondary mb-1">1. Athleten-Übersicht</strong>
+                        <p>Thomas öffnet sein Coach-Cockpit auf dem iPad/Desktop. Er sieht auf einen Blick, welche Spieler aktiv trainiert haben (Lukas: 75% erledigt, David: wartet auf Feedback).</p>
+                    </div>
+                    <div class="bg-primary/50 p-4 rounded-xl border border-surfaceBorder">
+                        <strong class="block text-secondary mb-1">2. Video-Review Queue</strong>
+                        <p>Lukas hat ein 10m-Sprintstart Video hochgeladen. Thomas öffnet das Video im Side-by-Side Slow-Motion Player, markiert den Absprungwinkel mit einem Zeichen-Tool und spricht eine 30-Sekunden Sprachnotiz ein.</p>
+                    </div>
+                    <div class="bg-primary/50 p-4 rounded-xl border border-secondary/40">
+                        <strong class="block text-accent mb-1">3. 1-Klick Plan-Push ✨</strong>
+                        <p>Thomas wählt das Modul „Phase 2: In-Season Explosivität - Mittelfeld“ und pusht es mit einem Klick auf Lukas' Smartphone. Zeitaufwand: 4 Minuten statt 45 Minuten via WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SEKTION 3: ANFORDERUNGEN FÜR FIGMA MAKE (PROMPT-FERTIGER BAUSTEIN) -->
+        <section id="figma-make" class="mb-20">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-secondary">Modul 3 der Aufgabenstellung</span>
+                <h2 class="text-3xl font-serif font-black text-white mt-2 mb-2 uppercase tracking-tight">Anforderungen für Figma Make</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded mb-4"></div>
+                <p class="text-slate-400 text-sm max-w-2xl mx-auto">
+                    Kopiere diese Komponenten- und Datenfeld-Liste direkt in das Prompt-Feld von <strong>Figma Make</strong>, um die ersten High-Fidelity Screens automatisiert generieren zu lassen.
+                </p>
+            </div>
+
+            <div class="bg-surface rounded-3xl border border-secondary/60 p-6 md:p-10 shadow-2xl neon-glow">
+                <div class="flex justify-between items-center mb-6 border-b border-surfaceBorder pb-4">
+                    <div>
+                        <span class="text-xs font-mono text-secondary uppercase font-bold">Figma Make • Prompt-Vorlage</span>
+                        <h3 class="text-xl font-bold text-white">Prompt-Baustein: Field Ready Mobile Athlete Dashboard (iOS 390x844)</h3>
+                    </div>
+                    <button onclick="navigator.clipboard.writeText(document.getElementById('figma-prompt-code').innerText); alert('Figma Make Prompt in die Zwischenablage kopiert!');" class="bg-secondary text-primary hover:bg-secondaryHover px-4 py-2 rounded-xl text-xs font-black transition-all shadow-md">
+                        📋 Prompt kopieren
+                    </button>
+                </div>
+
+                <div class="bg-primary/80 rounded-2xl p-6 border border-surfaceBorder font-mono text-xs text-slate-300 leading-relaxed overflow-x-auto" id="figma-prompt-code">
+Generate a high-fidelity mobile app screen for "FIELD READY" - a football performance coaching app (iOS 390x844).
+Aesthetic: Modern, dark-mode, athletic high-energy sports brand (Nike Training Club / Whoop vibe).
+Colors: Background Pitch Black (#080A0D), Card Surface (#141922), Accent Electric Volt Neon (#CCFF00), Success Turf Green (#00E575), Text White (#FFFFFF).
+
+REQUIRED UI COMPONENTS:
+1. Top iOS Header: Status Bar 09:41, Dynamic Island with pill badge, User Greeting "Servus Lukas!", Profile avatar with neon ring, Streak Badge "🔥 14 Tage".
+2. Circular Progress Card: SVG Circular Progress Ring (75% completed), label "3 von 4 Aufgaben erledigt", micro-text "Tagesziel: Mittelfeld-Explosivkraft".
+3. Calendar Strip: Horizontal 7-day pill strip (Mo-So) with checkmark status, highlighting current day "DO (Heute)" in neon outline.
+4. Main Workout Card: Gradient surface card with neon border, Tag "MITTELFELD SPEZIFISCH", Title "Explosivkraft & 10m Antritt", Subtext "Trap Bar Deadlifts, Resisted Sprints (35 Min)", Primary CTA Button "Session starten →" in #CCFF00 with black bold text.
+5. Exercise List Items (4 Cards):
+   - Card 1: Thumbnail with play icon, Title "Trap Bar Deadlifts", Meta "4 Sätze × 5 Wdh • 85 kg", Checkbox button in completed green state.
+   - Card 2: Title "10m Resisted Sprints", Meta "5 Sätze × 1 Wdh • Max Speed", Checkbox button completed.
+   - Card 3: Title "Box-to-Box Intervalle", Meta "6 Runden • 30s Sprint / 30s Trab", Checkbox button completed.
+   - Card 4: Title "Psoas & Hamstring Mobility", Meta "3 Sätze × 45s", Incomplete state with outline check circle.
+6. Coach Tip Callout Card: Avatar of Thomas Eder (Coach), Quote "Talent bringt dich an den Start – Disziplin über die 90 Minuten." in italics.
+7. Bottom Navigation Bar: iOS Tab Bar with 5 icons (Home [active in #CCFF00], Training, Ernährung, Fortschritt, Chat), Home Indicator bar at bottom.
+
+DATA FIELDS & LABELS:
+- Athlete Name: Lukas Wallner
+- Team & Position: SV Hallwang U17 • ZM
+- Sprint Metric: 10m Antritt 1.71s (-0.11s PB)
+- Daily Calories: 2.850 kcal (Carbs 390g, Protein 165g, Fette 65g)
+- Coach Online Status: Coach Thomas Eder (Online • Antwortzeit < 2h)
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-surfaceBorder py-8 text-slate-500 text-xs">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <strong>FIELD READY</strong> • Gegründet von Thomas Eder (18), Dipl. Fitnessinstruktor & Fußballspezialist.
+            </div>
+            <div>
+                <a href="user-flows.html" class="text-secondary hover:underline">Weiter zu den User Flows (Mermaid.js) →</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

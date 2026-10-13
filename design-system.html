@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System - Field Ready | Strategie Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#080A0D',      /* Deep Pitch Black */
+                        secondary: '#CCFF00',    /* Electric Volt Neon */
+                        secondaryHover: '#B5E600',
+                        accent: '#00E575',       /* Turf Green */
+                        background: '#0D1117',   /* Dark Slate */
+                        surface: '#141922',      /* Elevated Card */
+                        surfaceBorder: '#232B38',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Montserrat', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .neon-glow { box-shadow: 0 0 25px rgba(204, 255, 0, 0.25); }
+    </style>
+</head>
+
+<body class="bg-background text-slate-200 antialiased flex flex-col min-h-screen">
+
+    <!-- Header Navigation -->
+    <header class="bg-surface/90 backdrop-blur-md border-b border-surfaceBorder sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-primary border-2 border-secondary flex items-center justify-center neon-glow">
+                    <svg viewBox="0 0 40 40" width="24" height="24" fill="none">
+                        <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" stroke="#CCFF00" stroke-width="2.5" fill="#0A0E14" />
+                        <path d="M14 13 H28 L23 20 H18 L15 28 H10 Z" fill="#CCFF00" />
+                        <path d="M22 20 H28 L23 28 H17 Z" fill="#FFFFFF" opacity="0.85" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-serif font-black tracking-tight text-white text-xl">FIELD READY</span>
+                    <span class="hidden md:inline text-xs text-secondary font-mono ml-2 uppercase">Design System</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-slate-300 hover:text-secondary transition-colors font-medium">Dashboard</a>
+                
+                <div class="relative group">
+                    <a href="personas.html" class="text-slate-300 hover:text-secondary transition-colors font-medium flex items-center gap-1 py-2">
+                        Konzept & UX
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute left-0 mt-1 w-64 bg-surface border border-surfaceBorder rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-3">
+                        <a href="personas.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            👥 Zielgruppen & 3 Personas
+                        </a>
+                        <a href="journeys.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            🗺️ Customer Journeys (Phasen & Prompts)
+                        </a>
+                        <a href="user-flows.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            🔀 User Flows & Workflows (Mermaid)
+                        </a>
+                    </div>
+                </div>
+
+                <a href="design-system.html" class="text-secondary font-bold border-b-2 border-secondary pb-1">Design System</a>
+                <a href="journeys.html#figma-make" class="bg-secondary/10 border border-secondary/30 text-secondary hover:bg-secondary hover:text-primary px-4 py-1.5 rounded-full text-xs font-bold transition-all">
+                    ⚡ Figma Make Prompts
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 py-12">
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-secondary">Brand Architecture & Styles</span>
+            <h1 class="text-4xl md:text-5xl font-serif font-black text-white mt-2 mb-4 uppercase tracking-tight">Design System</h1>
+            <div class="w-20 h-1 bg-secondary mx-auto rounded"></div>
+            <p class="mt-4 text-slate-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                Das visuelle Fundament der Marke <strong>FIELD READY</strong>. Sportmarken-Ästhetik nach dem Vorbild von Nike Training Club und Whoop mit barrierefreien Kontrastwerten nach WCAG 2.1 AAA.
+            </p>
+        </div>
+
+        <!-- 1. Farbpalette (inspiriert von langerstrategy/design-system.html) -->
+        <section class="mb-20">
+            <h2 class="text-2xl md:text-3xl font-serif font-bold text-white mb-8 border-b border-surfaceBorder pb-4 flex items-center gap-3">
+                <span>🎨 Farbpalette</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Electric Volt -->
+                <div class="bg-surface rounded-2xl p-6 border border-surfaceBorder space-y-4">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <span class="w-3.5 h-3.5 bg-secondary rounded-full inline-block"></span>
+                        Electric Volt (Primary Accent)
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3 p-2 bg-background border border-surfaceBorder rounded-xl">
+                            <div class="w-12 h-12 rounded-lg bg-[#CCFF00] shadow-sm flex items-center justify-center font-bold text-black text-xs">★</div>
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Base Volt (Primary)</p>
+                                <p class="font-mono text-secondary">#CCFF00 • RGB(204, 255, 0)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-2 bg-background border border-surfaceBorder rounded-xl">
+                            <div class="w-12 h-12 rounded-lg bg-[#B5E600] shadow-sm"></div>
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Volt Hover</p>
+                                <p class="font-mono text-slate-400">#B5E600</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-2 bg-background border border-surfaceBorder rounded-xl">
+                            <div class="w-12 h-12 rounded-lg bg-[#99BF00] shadow-sm"></div>
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Volt Dark</p>
+                                <p class="font-mono text-slate-400">#99BF00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Turf Green -->
+                <div class="bg-surface rounded-2xl p-6 border border-surfaceBorder space-y-4">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <span class="w-3.5 h-3.5 bg-accent rounded-full inline-block"></span>
+                        Turf Green (Success & Badges)
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3 p-2 bg-background border border-surfaceBorder rounded-xl">
+                            <div class="w-12 h-12 rounded-lg bg-[#00E575] shadow-sm flex items-center justify-center font-bold text-black text-xs">✓</div>
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Pitch Turf (Accent)</p>
+                                <p class="font-mono text-accent">#00E575 • RGB(0, 229, 117)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-2 bg-background border border-surfaceBorder rounded-xl">
+                            <div class="w-12 h-12 rounded-lg bg-[#10B981] shadow-sm"></div>
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Emerald Green</p>
+                                <p class="font-mono text-slate-400">#10B981</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neutrals & Surfaces -->
+                <div class="bg-surface rounded-2xl p-6 border border-surfaceBorder space-y-4">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <span class="w-3.5 h-3.5 bg-background border border-slate-600 rounded-full inline-block"></span>
+                        Dark Neutrals & Canvas
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3 p-2 bg-background border border-surfaceBorder rounded-xl">
+                            <div class="w-12 h-12 rounded-lg bg-[#080A0D] border border-surfaceBorder shadow-sm"></div>
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Pitch Black (Base)</p>
+                                <p class="font-mono text-slate-400">#080A0D</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-2 bg-background border border-surfaceBorder rounded-xl">
+                            <div class="w-12 h-12 rounded-lg bg-[#141922] border border-surfaceBorder shadow-sm"></div>
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Slate Surface (Cards)</p>
+                                <p class="font-mono text-slate-400">#141922</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shade Scales (wie in langerstrategy) -->
+            <div class="mt-12 bg-surface rounded-2xl p-6 border border-surfaceBorder">
+                <h3 class="text-base font-bold text-white mb-6">Farbschattierungen (Volt Shade Scale)</h3>
+                <div class="flex rounded-xl overflow-hidden shadow-sm h-14 border border-surfaceBorder">
+                    <div class="flex-1 bg-[#F7FFE5] flex items-end p-2"><span class="text-[9px] font-mono font-bold text-slate-900">100</span></div>
+                    <div class="flex-1 bg-[#EEFFB8] flex items-end p-2"><span class="text-[9px] font-mono font-bold text-slate-900">200</span></div>
+                    <div class="flex-1 bg-[#E3FF80] flex items-end p-2"><span class="text-[9px] font-mono font-bold text-slate-900">300</span></div>
+                    <div class="flex-1 bg-[#D8FF47] flex items-end p-2"><span class="text-[9px] font-mono font-bold text-slate-900">400</span></div>
+                    <div class="flex-1 bg-[#CCFF00] flex items-end p-2 shadow-inner"><span class="text-[9px] font-mono font-black text-black">500★</span></div>
+                    <div class="flex-1 bg-[#B5E600] flex items-end p-2"><span class="text-[9px] font-mono font-bold text-black">600</span></div>
+                    <div class="flex-1 bg-[#99BF00] flex items-end p-2"><span class="text-[9px] font-mono font-bold text-white">700</span></div>
+                    <div class="flex-1 bg-[#6D8700] flex items-end p-2"><span class="text-[9px] font-mono font-bold text-white">800</span></div>
+                    <div class="flex-1 bg-[#3E4D00] flex items-end p-2"><span class="text-[9px] font-mono font-bold text-slate-300">900</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Typografie -->
+        <section class="mb-20">
+            <h2 class="text-2xl md:text-3xl font-serif font-bold text-white mb-8 border-b border-surfaceBorder pb-4 flex items-center gap-3">
+                <span>🔤 Typografie & Schriftschnitt</span>
+            </h2>
+
+            <div class="bg-surface rounded-2xl p-8 border border-surfaceBorder space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 border-b border-surfaceBorder pb-6">
+                    <div>
+                        <span class="text-xs text-secondary font-mono uppercase font-bold block mb-1">Heading 1 (Hero)</span>
+                        <h1 class="text-3xl font-serif font-black uppercase text-white">WERDE DER SPIELER</h1>
+                        <span class="text-xs text-slate-400 font-mono mt-1 block">Montserrat 900 • 32px / -0.02em</span>
+                    </div>
+                    <div>
+                        <span class="text-xs text-secondary font-mono uppercase font-bold block mb-1">Heading 2 (Section)</span>
+                        <h2 class="text-2xl font-serif font-bold uppercase text-white">EXPLOSIVKRAFT MITTELFELD</h2>
+                        <span class="text-xs text-slate-400 font-mono mt-1 block">Montserrat 800 • 24px / -0.01em</span>
+                    </div>
+                    <div>
+                        <span class="text-xs text-secondary font-mono uppercase font-bold block mb-1">Body Text (UI & Fließtext)</span>
+                        <p class="text-sm text-slate-200">Individuelles, positionsspezifisches Coaching für deinen nächsten Leistungssprung.</p>
+                        <span class="text-xs text-slate-400 font-mono mt-1 block">Inter 400/500 • 14px / 1.5</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. UI Komponenten Sandbox -->
+        <section class="mb-20">
+            <h2 class="text-2xl md:text-3xl font-serif font-bold text-white mb-8 border-b border-surfaceBorder pb-4 flex items-center gap-3">
+                <span>🧩 UI-Komponenten Bibliothek</span>
+            </h2>
+
+            <div class="bg-surface rounded-2xl p-8 border border-surfaceBorder space-y-8">
+                <!-- Buttons -->
+                <div>
+                    <h3 class="text-xs font-mono uppercase text-slate-400 mb-3 font-bold">Button Varianten</h3>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <button class="bg-secondary text-primary font-bold px-6 py-2.5 rounded-xl text-xs hover:bg-secondaryHover transition-all shadow-md neon-glow">
+                            Primary Action
+                        </button>
+                        <button class="bg-background border border-surfaceBorder text-white font-bold px-6 py-2.5 rounded-xl text-xs hover:border-secondary transition-all">
+                            Secondary Surface
+                        </button>
+                        <button class="border border-secondary text-secondary font-bold px-6 py-2.5 rounded-xl text-xs hover:bg-secondary/10 transition-all">
+                            Outline Neon
+                        </button>
+                        <button class="bg-surfaceBorder text-slate-500 font-bold px-6 py-2.5 rounded-xl text-xs cursor-not-allowed">
+                            Disabled State
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Badges -->
+                <div>
+                    <h3 class="text-xs font-mono uppercase text-slate-400 mb-3 font-bold">Badges & Position Tags</h3>
+                    <div class="flex flex-wrap gap-3 items-center">
+                        <span class="bg-secondary/10 border border-secondary/30 text-secondary text-xs font-bold px-3 py-1 rounded-full">
+                            ⚡ 10m Sprint Speed
+                        </span>
+                        <span class="bg-accent/10 border border-accent/30 text-accent text-xs font-bold px-3 py-1 rounded-full">
+                            ✓ Erledigt
+                        </span>
+                        <span class="bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full">
+                            Zentrales Mittelfeld (ZM)
+                        </span>
+                        <span class="bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold px-3 py-1 rounded-full">
+                            Stürmer (ST)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-surfaceBorder py-8 text-slate-500 text-xs">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <strong>FIELD READY</strong> • Gegründet von Thomas Eder (18), Dipl. Fitnessinstruktor & Fußballspezialist.
+            </div>
+            <div>
+                <a href="index.html" class="text-secondary hover:underline">Zurück zum Dashboard →</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

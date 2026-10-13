@@ -1,1573 +1,257 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FIELD READY | Athletic Coaching Platform by Thomas Eder</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,6 92,28 92,72 50,94 8,72 8,28' fill='%23080A0D' stroke='%23CCFF00' stroke-width='6'/><path d='M36 32 L66 32 L56 46 L44 46 L38 68 L26 68 Z' fill='%23CCFF00'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Ready - Strategie & Design Hub | Thomas Eder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#080A0D',      /* Deep Pitch Black */
+                        secondary: '#CCFF00',    /* Electric Volt Neon */
+                        secondaryHover: '#B5E600',
+                        accent: '#00E575',       /* Turf Green */
+                        background: '#0D1117',   /* Dark Slate */
+                        surface: '#141922',      /* Elevated Card */
+                        surfaceBorder: '#232B38',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Montserrat', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .neon-glow { box-shadow: 0 0 25px rgba(204, 255, 0, 0.25); }
+    </style>
 </head>
-<body>
 
-  <!-- ========================================================================
-       TOP NAVIGATION BAR
-       ======================================================================== -->
-  <header class="main-header">
-    <div class="container nav-container">
-      <!-- Brand Logo -->
-      <div class="brand-logo-wrap" onclick="switchPortalTab('tab-landing')">
-        <div class="logo-badge">
-          <!-- Official Field Ready SVG Icon -->
-          <svg viewBox="0 0 40 40" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" stroke="#CCFF00" stroke-width="2.5" fill="#0A0E14" />
-            <path d="M14 13 H28 L23 20 H18 L15 28 H10 Z" fill="#CCFF00" />
-            <path d="M22 20 H28 L23 28 H17 Z" fill="#FFFFFF" opacity="0.85" />
-          </svg>
-        </div>
-        <div class="brand-name">
-          <span>FIELD READY</span>
-          <span class="brand-sub">By Thomas Eder • Matura Projekt</span>
-        </div>
-      </div>
+<body class="bg-background text-slate-200 antialiased flex flex-col min-h-screen">
 
-      <!-- Navigation Tabs -->
-      <nav class="portal-tabs">
-        <button class="portal-tab-btn active" data-target="tab-landing">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-          Website
-        </button>
-        <button class="portal-tab-btn" data-target="tab-prototype">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          App Simulator (390x844)
-        </button>
-        <button class="portal-tab-btn" data-target="tab-design-system">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
-          Design System
-        </button>
-        <button class="portal-tab-btn" data-target="tab-personas">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          3 Personas & Empathie
-        </button>
-        <button class="portal-tab-btn" data-target="tab-docs">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Matura Doku
-        </button>
-      </nav>
-
-      <!-- Quick Action -->
-      <button class="btn btn-primary btn-sm" onclick="switchPortalTab('tab-prototype')">
-        <span>⚡ Prototyp testen</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ========================================================================
-       SECTION 1: LANDING PAGE (DESKTOP & RESPONSIVE SHOWCASE)
-       ======================================================================== -->
-  <main id="tab-landing" class="portal-section active">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container hero-grid">
-        <div class="hero-text-col">
-          <div class="hero-tag">
-            <span class="dot"></span>
-            <span>Digitales Performance Coaching • Fußball & Athletik</span>
-          </div>
-          <h1 class="hero-title">
-            Werde der Spieler, <br><span class="text-gradient-neon">der du sein kannst.</span>
-          </h1>
-          <p class="hero-desc">
-            Individuelle, positionsspezifische Trainingspläne, wissenschaftliche Spieltags-Ernährung und direkte Betreuung durch Coach Thomas Eder. 100% maßgeschneidert auf deinen Rasenerfolg.
-          </p>
-
-          <div style="display:flex; flex-wrap:wrap; gap:16px;">
-            <button class="btn btn-primary" onclick="switchPortalTab('tab-prototype')">
-              <span>Jetzt starten</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-            <button class="btn btn-secondary" onclick="switchPortalTab('tab-design-system')">
-              <span>Design System ansehen</span>
-            </button>
-          </div>
-
-          <!-- Stats Bar -->
-          <div class="hero-stats-row">
-            <div class="stat-item">
-              <span class="stat-value">+0.3s</span>
-              <span class="stat-label">30m Antritt-Speed</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value">90 Min</span>
-              <span class="stat-label">Volle Match-Power</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value">1:1</span>
-              <span class="stat-label">Direktes Coach-Feedback</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Preview Mockup -->
-        <div style="position:relative; display:flex; justify-content:center;">
-          <div style="position:relative; max-width:340px; width:100%; cursor:pointer;" onclick="switchPortalTab('tab-prototype')">
-            <div style="background:var(--bg-card); border:2px solid var(--border-neon); border-radius:36px; padding:18px; box-shadow:var(--shadow-neon); position:relative; overflow:hidden;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                <span class="badge-neon">LIVE APP PREVIEW</span>
-                <span style="font-size:0.75rem; color:var(--text-muted);">iOS 390x844</span>
-              </div>
-              <div style="background:#090D12; border-radius:24px; padding:16px; border:1px solid var(--border-subtle);">
-                <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-                  <img src="assets/images/coach_thomas.jpg" alt="Coach Thomas" style="width:46px; height:46px; border-radius:50%; object-fit:cover; border:1.5px solid var(--color-neon);">
-                  <div>
-                    <div style="font-size:0.85rem; font-weight:800;">Thomas Eder</div>
-                    <div style="font-size:0.7rem; color:var(--color-neon);">Head Coach & Gründer</div>
-                  </div>
-                </div>
-                <div style="background:rgba(204,255,0,0.06); border:1px solid var(--border-neon); border-radius:14px; padding:12px; margin-bottom:12px;">
-                  <div style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px;">Heutiger Fokus:</div>
-                  <div style="font-size:0.95rem; font-weight:800; color:#FFFFFF;">Explosivkraft & 10m Antritt</div>
-                  <div style="font-size:0.72rem; color:var(--color-neon); margin-top:4px;">4 Übungen • 35 Min • Mittelfeld</div>
-                </div>
-                <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:var(--bg-elevated); border-radius:12px;">
-                  <span style="font-size:0.8rem; font-weight:600;">Wochen-Fortschritt</span>
-                  <span style="font-size:0.85rem; font-weight:800; color:var(--color-neon);">75% 🔥</span>
-                </div>
-              </div>
-              <div style="text-align:center; margin-top:14px;">
-                <span style="font-size:0.8rem; font-weight:700; color:var(--color-neon); text-decoration:underline;">Klicke hier, um den Simulator zu öffnen →</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vorteile & 4 Säulen -->
-    <section class="container" style="padding: 60px 16px;">
-      <div style="text-align:center; max-width:700px; margin:0 auto;">
-        <span class="badge-neon">DIE FIELD READY METHODE</span>
-        <h2 style="margin-top:12px;">Schluss mit unpassendem Fitness-Training für Fußballer.</h2>
-        <p style="margin-top:8px;">Standard-Workouts machen dich schwerfällig. Wir entwickeln explosive, spritzige Athleten, die ab Minute 75 den Unterschied machen.</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon-box">⚡</div>
-          <h3>Positionsspezifische Pläne</h3>
-          <p>Ein Stürmer braucht explosive 5m-Tiefensprints. Ein Sechser braucht Box-to-Box Laktatresistenz. Unsere Pläne sind exakt auf deine Spielposition zugeschnitten.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon-box">🥗</div>
-          <h3>Matchday-Ernährung</h3>
-          <p>Wann Carbs laden? Was in der Halbzeitpause essen? Schluss mit Magenkrämpfen und Leistungseinbrüchen durch wissenschaftliche Ernährungsstrategien.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon-box">📱</div>
-          <h3>1:1 Video-Technikanalyse</h3>
-          <p>Filme deine Sprints und Kniebeugen mit dem Smartphone. Coach Thomas analysiert deine Hebelverhältnisse und gibt dir direktes Video-Feedback.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon-box">📈</div>
-          <h3>Datengetriebener Fortschritt</h3>
-          <p>Miss 10m/30m Sprintzeiten, Sprunghöhe und Trainingsvolumen. Sichtbare Kurven und Gamification-Badges sorgen dafür, dass du am Ball bleibst.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Coach Vorstellung: Thomas Eder -->
-    <section class="coach-section">
-      <div class="container">
-        <div class="coach-box">
-          <div class="coach-image-wrapper">
-            <img src="assets/images/coach_thomas.jpg" alt="Thomas Eder Portrait">
-            <div class="coach-badge-float">
-              <div>
-                <div style="font-weight:800; font-size:0.9rem;">Thomas Eder, 18</div>
-                <div style="font-size:0.75rem; color:var(--text-secondary);">Wien • Fitnessinstruktor & Fußballspezialist</div>
-              </div>
-              <span class="badge-neon">HEAD COACH</span>
-            </div>
-          </div>
-          <div>
-            <span class="badge-neon">DEIN COACH & GRÜNDER</span>
-            <h2 style="margin: 14px 0 16px;">"Ich mache dich athletisch so dominant, dass Gegenspieler abwinken."</h2>
-            <p style="margin-bottom: 16px; line-height: 1.7;">
-              Als ausgebildeter Fitnessinstruktor und aktiver Fußball-Enthusiast kenne ich das größte Problem im Nachwuchs- und Amateurfußball: Spieler wollen mehr erreichen, bekommen im Verein aber nur Taktikübungen und im Fitnessstudio Muskelberge, die sie langsam machen.
-            </p>
-            <p style="margin-bottom: 24px; line-height: 1.7;">
-              Mit <strong>Field Ready</strong> bringe ich professionelle Athletik-, Sprint- und Ernährungsbetreuung direkt auf dein Smartphone – persönlich, bezahlbar und maximal motivierend. Über TikTok und Instagram teile ich mein Fachwissen mit tausenden jungen Spielern.
-            </p>
-
-            <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
-              <div style="padding:10px 16px; background:rgba(255,255,255,0.05); border-radius:12px; border:1px solid var(--border-subtle);">
-                <div style="font-size:0.75rem; color:var(--text-secondary);">Social Reach</div>
-                <div style="font-weight:800; color:var(--color-neon);">@fieldready.coach</div>
-              </div>
-              <div style="padding:10px 16px; background:rgba(255,255,255,0.05); border-radius:12px; border:1px solid var(--border-subtle);">
-                <div style="font-size:0.75rem; color:var(--text-secondary);">Ausbildung</div>
-                <div style="font-weight:800; color:#FFFFFF;">Staatl. zert. Fitnessinstruktor</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Erfolgsgeschichten / Testimonials -->
-    <section class="container" style="padding: 80px 16px;">
-      <div style="text-align:center; max-width:650px; margin:0 auto 48px;">
-        <span class="badge-neon">ECHTER FORTSCHRITT</span>
-        <h2 style="margin-top:12px;">Erfolge auf dem Rasen sprechen für sich.</h2>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px;">
-        <!-- Testimonial 1: Lukas -->
-        <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:20px; padding:28px; display:flex; flex-direction:column; justify-content:space-between;">
-          <p style="font-style:italic; font-size:1.05rem; color:#FFFFFF; margin-bottom:20px; line-height:1.6;">
-            „Ich hatte immer das Problem, ab der 70. Minute schwere Beine zu haben. Mit dem Mittelfeld-Plan und der Spieltags-Ernährung von Thomas halte ich jetzt 90 Minuten Vollgas durch – und habe mir den U17-Stammplatz gesichert!“
-          </p>
-          <div style="display:flex; align-items:center; gap:14px;">
-            <img src="assets/images/player_lukas.jpg" alt="Lukas Wallner" style="width:52px; height:52px; border-radius:50%; object-fit:cover; border:2px solid var(--color-neon);">
-            <div>
-              <div style="font-weight:800;">Lukas Wallner, 16</div>
-              <div style="font-size:0.78rem; color:var(--text-secondary);">Zentrales Mittelfeld • SV Hallwang U17</div>
-              <div style="font-size:0.72rem; color:var(--color-neon); font-weight:700;">+0.25s schneller im 10m Antritt</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2: David -->
-        <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:20px; padding:28px; display:flex; flex-direction:column; justify-content:space-between;">
-          <p style="font-style:italic; font-size:1.05rem; color:#FFFFFF; margin-bottom:20px; line-height:1.6;">
-            „Früher hatte ich ständig Hamstring-Zerrungen nach Maximalsprints. Thomas hat meine Sprintmechanik per Video analysiert. Jetzt ziehe ich explosive Sprints ohne Angst durch und treffe regelmäßig!“
-          </p>
-          <div style="display:flex; align-items:center; gap:14px;">
-            <img src="assets/images/player_david.jpg" alt="David Steiner" style="width:52px; height:52px; border-radius:50%; object-fit:cover; border:2px solid var(--color-neon);">
-            <div>
-              <div style="font-weight:800;">David Steiner, 19</div>
-              <div style="font-size:0.78rem; color:var(--text-secondary);">Stürmer • Bezirksliga Kampfmannschaft</div>
-              <div style="font-size:0.72rem; color:var(--color-neon); font-weight:700;">+11 cm Vertical Jump gesteigert</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-      <div class="container">
-        <div style="text-align:center; max-width:600px; margin:0 auto 36px;">
-          <span class="badge-neon">TRANSPARENTE PREISE</span>
-          <h2 style="margin-top:12px;">Wähle dein Coaching-Paket.</h2>
-          <p style="margin-top:8px;">Keine versteckten Kosten. Jederzeit monatlich kündbar.</p>
-
-          <!-- Toggle -->
-          <div style="display:inline-flex; background:var(--bg-card); padding:4px; border-radius:30px; border:1px solid var(--border-subtle); margin-top:20px;">
-            <button id="pricing-monthly-btn" class="btn btn-sm" style="border-radius:24px; background:var(--color-neon); color:#000;">Monatlich</button>
-            <button id="pricing-yearly-btn" class="btn btn-sm" style="border-radius:24px; color:var(--text-secondary);">Jährlich (-20%)</button>
-          </div>
-        </div>
-
-        <div class="pricing-grid">
-          <!-- Basic -->
-          <div class="pricing-card">
-            <h3>Basic Player</h3>
-            <p style="font-size:0.85rem; margin-top:4px;">Für eigenständige Athleten mit Grundlagenfokus.</p>
-            <div class="price-box">
-              <span id="price-basic-val" class="price-amount">9,99€</span>
-              <span class="price-period">/ Monat</span>
-            </div>
-            <ul class="pricing-features">
-              <li><span class="check-icon">✓</span> Allgemeine Athletik-Trainingspläne</li>
-              <li><span class="check-icon">✓</span> Standard Makro-Rechner</li>
-              <li><span class="check-icon">✓</span> Streak & Übungstracker</li>
-              <li style="opacity:0.4;"><span>✕</span> Keine Positionsspezialisierung</li>
-              <li style="opacity:0.4;"><span>✕</span> Kein 1:1 Coach-Chat</li>
-            </ul>
-            <button class="btn btn-secondary" onclick="switchPortalTab('tab-prototype')">Plan wählen</button>
-          </div>
-
-          <!-- Premium (Featured) -->
-          <div class="pricing-card featured">
-            <div class="featured-pill">Empfehlung von Thomas</div>
-            <h3 style="color:var(--color-neon);">Premium Athlete</h3>
-            <p style="font-size:0.85rem; margin-top:4px;">Maximale Performance für ambitionierte Fußballer.</p>
-            <div class="price-box">
-              <span id="price-premium-val" class="price-amount" style="color:var(--color-neon);">24,99€</span>
-              <span class="price-period">/ Monat</span>
-            </div>
-            <ul class="pricing-features">
-              <li><span class="check-icon">✓</span> <strong>Positionsspezifische Trainingspläne</strong> (TW, IV, ZM, ST)</li>
-              <li><span class="check-icon">✓</span> <strong>Matchday-Ernährungsguide</strong> & Rezepte</li>
-              <li><span class="check-icon">✓</span> Sprint- & Sprungkraftdiagnostik</li>
-              <li><span class="check-icon">✓</span> Monatliches Gruppen-Q&A mit Thomas</li>
-              <li><span class="check-icon">✓</span> Videoübungen in 4K Slow-Motion</li>
-            </ul>
-            <button class="btn btn-primary" onclick="switchPortalTab('tab-prototype')">Premium starten</button>
-          </div>
-
-          <!-- 1:1 Elite -->
-          <div class="pricing-card">
-            <h3>1:1 Elite Coaching</h3>
-            <p style="font-size:0.85rem; margin-top:4px;">Strikte Betreuung. Limitiert auf 15 Plätze.</p>
-            <div class="price-box">
-              <span id="price-elite-val" class="price-amount">79,99€</span>
-              <span class="price-period">/ Monat</span>
-            </div>
-            <ul class="pricing-features">
-              <li><span class="check-icon">✓</span> Alles aus dem Premium-Paket</li>
-              <li><span class="check-icon">✓</span> <strong>Persönlicher Chat mit Thomas Eder</strong></li>
-              <li><span class="check-icon">✓</span> <strong>Wöchentliche Video-Technikanalyse</strong></li>
-              <li><span class="check-icon">✓</span> Individuell adaptierte Periodisierung</li>
-              <li><span class="check-icon">✓</span> Notfall-Support vor Spieltagen</li>
-            </ul>
-            <button class="btn btn-secondary" onclick="switchPortalTab('tab-prototype')">Platz anfragen</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="background:#06080A; border-top:1px solid var(--border-subtle); padding:40px 0; margin-top:60px;">
-      <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div class="logo-badge" style="width:32px; height:32px;">
-            <svg viewBox="0 0 40 40" width="20" height="20" fill="none">
-              <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" stroke="#CCFF00" stroke-width="3" fill="#0A0E14" />
-              <path d="M14 13 H28 L23 20 H18 L15 28 H10 Z" fill="#CCFF00" />
-            </svg>
-          </div>
-          <div>
-            <div style="font-weight:800; font-size:0.95rem;">FIELD READY</div>
-            <div style="font-size:0.7rem; color:var(--text-secondary);">Matura-Projekt • Thomas Eder, 18</div>
-          </div>
-        </div>
-        <div style="font-size:0.8rem; color:var(--text-muted);">
-          Entwickelt als moderne Web-Plattform (Web-First Responsive Prototype).
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <!-- ========================================================================
-       SECTION 2: INTERACTIVE MOBILE PROTOTYPE (390 x 844 px)
-       ======================================================================== -->
-  <main id="tab-prototype" class="portal-section">
-    <div class="container prototype-workspace">
-      <!-- Intro bar -->
-      <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:16px; padding:18px 24px; margin-bottom:32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div>
-          <h2 style="font-size:1.4rem;">📱 Klickbarer Mobile-Prototyp (390 x 844)</h2>
-          <p style="font-size:0.85rem;">iOS-Look & Feel mit 5-Tab Navigation, Workout-Checkliste, Positionstraining, Analytics & Coach-Chat.</p>
-        </div>
-        <div style="display:flex; gap:10px;">
-          <button class="btn btn-secondary btn-sm" onclick="switchMobileScreen('screen-coach-admin')">
-            <span>👨‍💼 Coach-Ansicht</span>
-          </button>
-          <button class="btn btn-primary btn-sm" onclick="switchMobileScreen('screen-splash')">
-            <span>🔄 Onboarding Neustarten</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="prototype-layout">
-        <!-- Left: Quick Screen Navigator -->
-        <div class="screen-selector-card">
-          <div style="font-weight:800; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-neon); margin-bottom:4px;">Screen Navigator</div>
-          <p style="font-size:0.75rem;">Direkt zu jedem Screen springen:</p>
-
-          <div class="screen-btn-list">
-            <button class="screen-select-btn" data-screen="screen-splash">
-              <span>1. Splash & Onboarding</span>
-              <span class="screen-num">01</span>
-            </button>
-            <button class="screen-select-btn active" data-screen="screen-home">
-              <span>2. Home / Dashboard</span>
-              <span class="screen-num">02</span>
-            </button>
-            <button class="screen-select-btn" data-screen="screen-training">
-              <span>3. Trainingsplan</span>
-              <span class="screen-num">03</span>
-            </button>
-            <button class="screen-select-btn" data-screen="screen-position">
-              <span>4. Positionstraining</span>
-              <span class="screen-num">04</span>
-            </button>
-            <button class="screen-select-btn" data-screen="screen-nutrition">
-              <span>5. Ernährung & Makros</span>
-              <span class="screen-num">05</span>
-            </button>
-            <button class="screen-select-btn" data-screen="screen-progress">
-              <span>6. Fortschritt & Badges</span>
-              <span class="screen-num">06</span>
-            </button>
-            <button class="screen-select-btn" data-screen="screen-chat">
-              <span>7. Coach-Chat (Thomas)</span>
-              <span class="screen-num">07</span>
-            </button>
-            <button class="screen-select-btn" data-screen="screen-profile">
-              <span>8. Profil & Abo</span>
-              <span class="screen-num">08</span>
-            </button>
-            <div style="margin-top:12px; padding-top:10px; border-top:1px dashed var(--border-medium);">
-              <button class="screen-select-btn" data-screen="screen-coach-admin" style="color:var(--color-emerald);">
-                <span>👑 Coach-Dashboard (Admin)</span>
-                <span class="screen-num" style="background:rgba(0,229,117,0.15); color:var(--color-emerald);">ADMIN</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Center: Simulated iPhone 15 Pro (390 x 844) -->
-        <div class="phone-mockup-wrapper">
-          <div class="phone-device">
-            <div class="phone-screen">
-              <!-- iOS Status Bar & Dynamic Island -->
-              <div class="ios-status-bar">
-                <span>09:41</span>
-                <div class="dynamic-island">
-                  <div class="island-camera"></div>
-                  <div style="display:flex; align-items:center; gap:4px;">
-                    <span style="font-size:0.6rem; color:var(--color-neon);">⚡</span>
-                    <span style="font-size:0.65rem; color:#fff; font-weight:700;">FIELD READY</span>
-                  </div>
-                  <div class="island-sensor"></div>
-                </div>
-                <div style="display:flex; align-items:center; gap:4px;">
-                  <span style="font-size:0.7rem;">5G</span>
-                  <svg width="18" height="10" viewBox="0 0 24 12" fill="currentColor"><rect x="1" y="1" width="19" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="3" width="13" height="6" rx="1.5" fill="currentColor"/><path d="M22 4v4" stroke="currentColor" stroke-width="1.5"/></svg>
-                </div>
-              </div>
-
-              <!-- Screen Scroll Viewport -->
-              <div class="screen-scroll-container">
-
-                <!-- SCREEN 1: SPLASH & ONBOARDING (3 SLIDES) -->
-                <div id="screen-splash" class="mobile-screen-view">
-                  <!-- Slide 1: Welcome -->
-                  <div class="onboard-slide" id="slide-1" style="display:block; text-align:center; padding:20px 0;">
-                    <div style="width:72px; height:72px; margin:20px auto 16px; background:#11161E; border:2px solid var(--color-neon); border-radius:20px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-neon);">
-                      <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+    <!-- Header Navigation -->
+    <header class="bg-surface/90 backdrop-blur-md border-b border-surfaceBorder sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-primary border-2 border-secondary flex items-center justify-center neon-glow">
+                    <svg viewBox="0 0 40 40" width="24" height="24" fill="none">
                         <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" stroke="#CCFF00" stroke-width="2.5" fill="#0A0E14" />
                         <path d="M14 13 H28 L23 20 H18 L15 28 H10 Z" fill="#CCFF00" />
                         <path d="M22 20 H28 L23 28 H17 Z" fill="#FFFFFF" opacity="0.85" />
-                      </svg>
-                    </div>
-                    <span class="badge-neon">SCHRITT 1 VON 3</span>
-                    <h2 style="font-size:1.6rem; margin:14px 0 8px;">WILLKOMMEN BEI FIELD READY</h2>
-                    <p style="font-size:0.85rem; margin-bottom:24px;">Die erste Coaching-App von Fußballern für Fußballer. Entwickelt von Coach Thomas Eder.</p>
-
-                    <div style="background:var(--bg-card); border-radius:16px; padding:16px; text-align:left; border:1px solid var(--border-subtle); margin-bottom:28px;">
-                      <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-                        <span style="color:var(--color-neon); font-size:1.1rem;">⚡</span>
-                        <span style="font-size:0.82rem; font-weight:600;">Positionsspezifische Athletik</span>
-                      </div>
-                      <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-                        <span style="color:var(--color-neon); font-size:1.1rem;">🥗</span>
-                        <span style="font-size:0.82rem; font-weight:600;">Spieltags-Ernährungsplan</span>
-                      </div>
-                      <div style="display:flex; align-items:center; gap:10px;">
-                        <span style="color:var(--color-neon); font-size:1.1rem;">💬</span>
-                        <span style="font-size:0.82rem; font-weight:600;">Direkter Chat mit Coach Thomas</span>
-                      </div>
-                    </div>
-
-                    <button class="btn btn-primary onboard-next-btn" style="width:100%;">
-                      <span>Weiter: Ziele wählen →</span>
-                    </button>
-                  </div>
-
-                  <!-- Slide 2: Goals -->
-                  <div class="onboard-slide" id="slide-2" style="display:none; padding:10px 0;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                      <button class="onboard-prev-btn" style="color:var(--text-secondary); font-size:0.8rem;">← Zurück</button>
-                      <span class="badge-neon">SCHRITT 2 VON 3</span>
-                    </div>
-                    <h2 style="font-size:1.4rem; margin-bottom:6px;">WAS IST DEIN HAUPTZIEL?</h2>
-                    <p style="font-size:0.8rem; margin-bottom:18px;">Wähle die Bereiche, an denen du am meisten arbeiten willst:</p>
-
-                    <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:24px;">
-                      <div class="m-card goal-select-chip selected" style="cursor:pointer; display:flex; align-items:center; gap:12px; border-color:var(--color-neon); background:var(--color-neon-subtle);">
-                        <span style="font-size:1.3rem;">⚡</span>
-                        <div>
-                          <div style="font-weight:700; font-size:0.88rem;">10m / 30m Sprint-Schnelligkeit</div>
-                          <div style="font-size:0.72rem; color:var(--text-secondary);">Erster Schritt und Höchstgeschwindigkeit</div>
-                        </div>
-                      </div>
-                      <div class="m-card goal-select-chip selected" style="cursor:pointer; display:flex; align-items:center; gap:12px; border-color:var(--color-neon); background:var(--color-neon-subtle);">
-                        <span style="font-size:1.3rem;">💪</span>
-                        <div>
-                          <div style="font-weight:700; font-size:0.88rem;">Zweikampfkraft & Robustheit</div>
-                          <div style="font-size:0.72rem; color:var(--text-secondary);">Stabilität im direkten Körperkontakt</div>
-                        </div>
-                      </div>
-                      <div class="m-card goal-select-chip" style="cursor:pointer; display:flex; align-items:center; gap:12px;">
-                        <span style="font-size:1.3rem;">🫁</span>
-                        <div>
-                          <div style="font-weight:700; font-size:0.88rem;">90-Minuten-Ausdauer</div>
-                          <div style="font-size:0.72rem; color:var(--text-secondary);">Box-to-Box Kondition ohne Einbruch</div>
-                        </div>
-                      </div>
-                      <div class="m-card goal-select-chip" style="cursor:pointer; display:flex; align-items:center; gap:12px;">
-                        <span style="font-size:1.3rem;">🥗</span>
-                        <div>
-                          <div style="font-weight:700; font-size:0.88rem;">Ernährung & Matchday-Timing</div>
-                          <div style="font-size:0.72rem; color:var(--text-secondary);">Optimale Makros vor und nach Spielen</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <button class="btn btn-primary onboard-next-btn" style="width:100%;">
-                      <span>Weiter: Profil anlegen →</span>
-                    </button>
-                  </div>
-
-                  <!-- Slide 3: Profile Setup -->
-                  <div class="onboard-slide" id="slide-3" style="display:none; padding:10px 0;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                      <button class="onboard-prev-btn" style="color:var(--text-secondary); font-size:0.8rem;">← Zurück</button>
-                      <span class="badge-neon">SCHRITT 3 VON 3</span>
-                    </div>
-                    <h2 style="font-size:1.4rem; margin-bottom:6px;">DEIN SPIELERPROFIL</h2>
-                    <p style="font-size:0.8rem; margin-bottom:16px;">Damit Coach Thomas deinen Plan perfekt berechnen kann:</p>
-
-                    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:20px;">
-                      <div>
-                        <label style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase;">Position</label>
-                        <select style="width:100%; padding:10px; border-radius:10px; background:var(--bg-elevated); color:#fff; border:1px solid var(--border-subtle); margin-top:4px;">
-                          <option>Zentrales Mittelfeld (ZM/ZOM/ZDM)</option>
-                          <option>Stürmer / Flügel (ST/LA/RA)</option>
-                          <option>Innen- / Außenverteidiger (IV/AV)</option>
-                          <option>Torwart (TW)</option>
-                        </select>
-                      </div>
-                      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                        <div>
-                          <label style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase;">Alter</label>
-                          <input type="number" value="16" style="width:100%; padding:10px; border-radius:10px; background:var(--bg-elevated); color:#fff; border:1px solid var(--border-subtle); margin-top:4px;">
-                        </div>
-                        <div>
-                          <label style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase;">Level</label>
-                          <select style="width:100%; padding:10px; border-radius:10px; background:var(--bg-elevated); color:#fff; border:1px solid var(--border-subtle); margin-top:4px;">
-                            <option>U17 Leistungsklasse</option>
-                            <option>Amateur / Kampfmannschaft</option>
-                            <option>Hobbyspieler</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div>
-                        <label style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase;">Aktueller Verein</label>
-                        <input type="text" value="SV Hallwang Nachwuchs" style="width:100%; padding:10px; border-radius:10px; background:var(--bg-elevated); color:#fff; border:1px solid var(--border-subtle); margin-top:4px;">
-                      </div>
-                    </div>
-
-                    <button id="finish-onboard-btn" class="btn btn-primary" style="width:100%;">
-                      <span>⚡ Trainingsplan freischalten</span>
-                    </button>
-                  </div>
+                    </svg>
                 </div>
+                <div>
+                    <span class="font-serif font-black tracking-tight text-white text-xl">FIELD READY</span>
+                    <span class="hidden md:inline text-xs text-secondary font-mono ml-2 uppercase">Strategie & UX Hub</span>
+                </div>
+                <div class="hidden lg:flex items-center gap-2 ml-4 border-l border-surfaceBorder pl-4 h-6">
+                    <span class="flex h-2 w-2 rounded-full bg-secondary animate-pulse"></span>
+                    <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider">
+                        Schritt 1: <span class="text-secondary font-semibold">Strategie & Customer Journey</span>
+                    </span>
+                </div>
+            </a>
 
-                <!-- SCREEN 2: HOME / DASHBOARD -->
-                <div id="screen-home" class="mobile-screen-view active">
-                  <!-- Header User Greeting -->
-                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-                    <div>
-                      <div style="font-size:0.75rem; color:var(--text-secondary);">Willkommen zurück 👋</div>
-                      <h2 style="font-size:1.35rem; margin-top:2px;">Servus Lukas!</h2>
-                    </div>
-                    <div style="display:flex; align-items:center; gap:8px;">
-                      <div style="background:rgba(204,255,0,0.1); border:1px solid var(--border-neon); padding:4px 10px; border-radius:20px; font-size:0.75rem; font-weight:800; color:var(--color-neon);">
-                        🔥 14 Tage
-                      </div>
-                      <img src="assets/images/player_lukas.jpg" alt="Lukas" style="width:36px; height:36px; border-radius:50%; object-fit:cover; border:1.5px solid var(--color-neon); cursor:pointer;" onclick="switchMobileScreen('screen-profile')">
-                    </div>
-                  </div>
-
-                  <!-- Daily Progress Ring Card -->
-                  <div class="m-card m-card-glow">
-                    <div class="ring-container">
-                      <div class="circular-progress">
-                        <svg width="90" height="90">
-                          <circle class="ring-bg" cx="45" cy="45" r="40" stroke-width="8" fill="none" />
-                          <circle class="ring-bar" cx="45" cy="45" r="40" stroke-width="8" fill="none" stroke-linecap="round" />
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-secondary font-bold border-b-2 border-secondary pb-1">Dashboard</a>
+                
+                <!-- Dropdown Konzept -->
+                <div class="relative group">
+                    <a href="personas.html" class="text-slate-300 hover:text-secondary transition-colors font-medium flex items-center gap-1 py-2">
+                        Konzept & UX
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
-                        <div class="ring-label ring-percent-text text-neon">75%</div>
-                      </div>
-                      <div style="flex:1;">
-                        <span class="badge-neon" style="font-size:0.65rem; padding:2px 8px;">Tagesziel</span>
-                        <div style="font-weight:800; font-size:0.95rem; margin-top:4px;">3 von 4 Aufgaben erledigt</div>
-                        <p style="font-size:0.72rem; margin-top:2px;">Noch die Psoas-Mobility Einheit abhaken für 100%!</p>
-                      </div>
+                    </a>
+                    <div class="absolute left-0 mt-1 w-64 bg-surface border border-surfaceBorder rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-3">
+                        <a href="personas.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            👥 Zielgruppen & 3 Personas
+                        </a>
+                        <a href="journeys.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            🗺️ Customer Journeys (Phasen & Prompts)
+                        </a>
+                        <a href="user-flows.html" class="block px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-secondary transition-colors font-medium">
+                            🔀 User Flows & Workflows (Mermaid)
+                        </a>
                     </div>
-                  </div>
+                </div>
 
-                  <!-- Week Days Overview -->
-                  <div style="display:flex; justify-content:space-between; margin-bottom:16px; background:var(--bg-card); padding:8px 12px; border-radius:14px; border:1px solid var(--border-subtle);">
-                    <div style="text-align:center;"><div style="font-size:0.65rem; color:var(--text-muted);">MO</div><div style="font-size:0.8rem; font-weight:800; color:var(--color-neon);">✓</div></div>
-                    <div style="text-align:center;"><div style="font-size:0.65rem; color:var(--text-muted);">DI</div><div style="font-size:0.8rem; font-weight:800; color:var(--color-neon);">✓</div></div>
-                    <div style="text-align:center;"><div style="font-size:0.65rem; color:var(--text-muted);">MI</div><div style="font-size:0.8rem; font-weight:800; color:var(--color-neon);">✓</div></div>
-                    <div style="text-align:center; background:var(--color-neon-subtle); padding:2px 6px; border-radius:6px; border:1px solid var(--border-neon);"><div style="font-size:0.65rem; color:var(--color-neon); font-weight:700;">DO</div><div style="font-size:0.8rem; font-weight:800; color:#fff;">HEUTE</div></div>
-                    <div style="text-align:center;"><div style="font-size:0.65rem; color:var(--text-muted);">FR</div><div style="font-size:0.8rem; font-weight:800; color:var(--text-muted);">○</div></div>
-                    <div style="text-align:center;"><div style="font-size:0.65rem; color:var(--text-muted);">SA</div><div style="font-size:0.8rem; font-weight:800; color:var(--text-coral);">⚽</div></div>
-                    <div style="text-align:center;"><div style="font-size:0.65rem; color:var(--text-muted);">SO</div><div style="font-size:0.8rem; font-weight:800; color:var(--text-muted);">○</div></div>
-                  </div>
+                <a href="design-system.html" class="text-slate-300 hover:text-secondary transition-colors font-medium">Design System</a>
+                <a href="journeys.html#figma-make" class="bg-secondary/10 border border-secondary/30 text-secondary hover:bg-secondary hover:text-primary px-4 py-1.5 rounded-full text-xs font-bold transition-all">
+                    ⚡ Figma Make Prompts
+                </a>
+            </nav>
+        </div>
+    </header>
 
-                  <!-- Today's Workout Feature -->
-                  <div class="m-section-title">
-                    <span>HEUTIGES TRAINING</span>
-                    <span style="cursor:pointer;" onclick="switchMobileScreen('screen-training')">Alle ansehen →</span>
-                  </div>
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative bg-primary text-white py-20 border-b border-surfaceBorder overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#CCFF00_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-secondary/10 border border-secondary/30 text-secondary mb-6">
+                    <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    PRODUKTSTRATEGIE • SCHRITT 1: STRATEGIE & CUSTOMER JOURNEY
+                </span>
+                <h1 class="text-4xl md:text-6xl font-serif font-black mb-6 leading-tight uppercase tracking-tight">
+                    Athletische Exzellenz <br>
+                    <span class="text-secondary italic">strategisch geplant.</span>
+                </h1>
+                <p class="text-lg text-slate-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    Willkommen im Strategie- und UX-Hub für <strong>FIELD READY</strong>. Gegründet von <strong>Thomas Eder (18)</strong>, zertifizierter Fitnessinstruktor & Fußballspezialist. Hier findest du die exakten Arbeitsmodule für Personas, Customer Journeys, Workflows und das Design System.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="personas.html" class="bg-secondary text-primary hover:bg-secondaryHover px-8 py-3 rounded-full font-bold transition-all shadow-lg neon-glow">
+                        Zu den 3 Personas →
+                    </a>
+                    <a href="journeys.html" class="bg-surface border border-surfaceBorder text-slate-200 hover:border-secondary hover:text-secondary px-8 py-3 rounded-full font-bold transition-all">
+                        Customer Journey Map
+                    </a>
+                    <a href="user-flows.html" class="bg-surface border border-surfaceBorder text-slate-200 hover:border-secondary hover:text-secondary px-8 py-3 rounded-full font-bold transition-all">
+                        User Flows & Workflows
+                    </a>
+                    <a href="design-system.html" class="bg-surface border border-surfaceBorder text-slate-200 hover:border-secondary hover:text-secondary px-8 py-3 rounded-full font-bold transition-all">
+                        Designfarben
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                  <div class="m-card" style="background:linear-gradient(135deg, #182230 0%, #111720 100%); border-color:var(--border-neon);">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
-                      <span class="badge-neon" style="font-size:0.65rem;">MITTELFELD SPEZIFISCH</span>
-                      <span style="font-size:0.75rem; color:var(--color-neon); font-weight:700;">35 MIN</span>
+        <!-- Projektphasen-Roadmap -->
+        <section class="py-16 bg-surface border-b border-surfaceBorder">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-serif font-bold text-white mb-2">Projektphasen (UX Roadmap)</h2>
+                    <div class="w-20 h-1 bg-secondary mx-auto rounded mb-3"></div>
+                    <p class="text-slate-400 text-sm">Entwicklungspfad von der Nutzerforschung bis zum Figma Make Prototyp</p>
+                </div>
+
+                <div class="relative max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <!-- Phase 1: Strategie & Personas -->
+                        <div class="bg-background border-2 border-accent/40 rounded-2xl p-6 text-center relative shadow-lg">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-primary text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full">
+                                ✓ Abgeschlossen
+                            </span>
+                            <div class="w-12 h-12 rounded-full bg-accent/20 border border-accent text-accent font-black flex items-center justify-center mx-auto mb-4 text-lg">
+                                1
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-1">3 Personas & Empathie</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Zielgruppen-Definition, Empathie-Maps, Ziele und Top-Schmerzpunkte.</p>
+                        </div>
+
+                        <!-- Phase 2: Customer Journey -->
+                        <div class="bg-background border-2 border-secondary rounded-2xl p-6 text-center relative shadow-lg neon-glow">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-primary text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full animate-pulse">
+                                🔄 Aktueller Schritt
+                            </span>
+                            <div class="w-12 h-12 rounded-full bg-secondary/20 border border-secondary text-secondary font-black flex items-center justify-center mx-auto mb-4 text-lg">
+                                2
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-1">Customer Journey</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Phasen Entdeckung, Onboarding, Kern-Nutzen, Touchpoints & Magic Moments.</p>
+                        </div>
+
+                        <!-- Phase 3: Workflows & Flows -->
+                        <div class="bg-background border-2 border-secondary/60 rounded-2xl p-6 text-center relative shadow-lg">
+                            <div class="w-12 h-12 rounded-full bg-secondary/20 border border-secondary text-secondary font-black flex items-center justify-center mx-auto mb-4 text-lg">
+                                3
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-1">User Flows (Mermaid)</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Routing-Logik (Athlete vs. Coach) mit interaktiver Mermaid.js Grafik.</p>
+                        </div>
+
+                        <!-- Phase 4: Designfarben -->
+                        <div class="bg-background border-2 border-accent/40 rounded-2xl p-6 text-center relative shadow-lg">
+                            <div class="w-12 h-12 rounded-full bg-accent/20 border border-accent text-accent font-black flex items-center justify-center mx-auto mb-4 text-lg">
+                                4
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-1">Design System</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Farbpalette auf eigener Seite mit Shade Scales (100–900) & Typografie.</p>
+                        </div>
                     </div>
-                    <h3 style="font-size:1.05rem; margin-bottom:4px;">Explosivkraft & 10m Antritt</h3>
-                    <p style="font-size:0.78rem; margin-bottom:14px;">Trap Bar Deadlifts, Resisted Sprints, Box-to-Box Intervalle</p>
-                    <button class="btn btn-primary btn-sm" style="width:100%;" onclick="switchMobileScreen('screen-training')">
-                      <span>Session fortsetzen →</span>
-                    </button>
-                  </div>
+                </div>
+            </div>
+        </section>
 
-                  <!-- Quote of the Day from Thomas -->
-                  <div class="m-card" style="background:rgba(204,255,0,0.04); border-left:3px solid var(--color-neon);">
-                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-                      <img src="assets/images/coach_thomas.jpg" alt="Thomas" style="width:24px; height:24px; border-radius:50%; object-fit:cover;">
-                      <span style="font-size:0.75rem; font-weight:800; color:var(--color-neon);">THOMAS' COACH-IMPULS</span>
+        <!-- Schnellnavigation zu den 4 Kernbereichen -->
+        <section class="py-20 container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-secondary">Die 4 Kernbereiche der Website</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-black text-white mt-2 mb-4">Strategie-Module nach Vorlage</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Modul 1: Personas -->
+                <a href="personas.html" class="bg-surface border border-surfaceBorder hover:border-secondary rounded-2xl p-6 transition-all transform hover:-translate-y-1.5 shadow-lg group block">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 border border-secondary/30 text-secondary flex items-center justify-center text-2xl mb-4 group-hover:bg-secondary group-hover:text-primary transition-colors">
+                        👥
                     </div>
-                    <p style="font-size:0.8rem; font-style:italic; color:#FFFFFF;">
-                      „Talent bringt dich an den Start – Disziplin bringt dich über die 90 Minuten. Zieh die Hamstrings heute sauber durch!“
+                    <h3 class="text-xl font-bold text-white group-hover:text-secondary transition-colors mb-2">3 Personas & Empathie</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                        Thomas Eder (Coach), Lukas Wallner (16, Mittelfeld) & David Steiner (19, Stürmer) mit Empathie-Maps, Zielen und Schmerzpunkten.
                     </p>
-                  </div>
-                </div>
+                    <span class="text-xs font-bold text-secondary inline-flex items-center gap-1">Details ansehen &rarr;</span>
+                </a>
 
-                <!-- SCREEN 3: TRAININGSPLAN -->
-                <div id="screen-training" class="mobile-screen-view">
-                  <div class="m-section-title">
-                    <span>WOCHENPLAN: PHASE 2</span>
-                    <span style="color:var(--text-secondary);">Woche 3/8</span>
-                  </div>
-
-                  <!-- Exercise 1 -->
-                  <div class="exercise-card completed">
-                    <div class="exercise-thumb">
-                      <span style="font-size:1.4rem;">🏋️</span>
-                      <div class="play-badge">▶</div>
+                <!-- Modul 2: Customer Journeys -->
+                <a href="journeys.html" class="bg-surface border border-surfaceBorder hover:border-secondary rounded-2xl p-6 transition-all transform hover:-translate-y-1.5 shadow-lg group block">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 border border-secondary/30 text-secondary flex items-center justify-center text-2xl mb-4 group-hover:bg-secondary group-hover:text-primary transition-colors">
+                        🗺️
                     </div>
-                    <div class="exercise-info">
-                      <div class="exercise-title">Trap Bar Deadlifts</div>
-                      <div class="exercise-meta">4 Sätze × 5 Wdh • 85 kg • 2 Min Pause</div>
+                    <h3 class="text-xl font-bold text-white group-hover:text-secondary transition-colors mb-2">Customer Journeys</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                        Ablauf Entdeckung → Onboarding → Kern-Nutzen, Gedanken/Gefühle, Touchpoints und Magic Moments ✨.
+                    </p>
+                    <span class="text-xs font-bold text-secondary inline-flex items-center gap-1">Journeys erkunden &rarr;</span>
+                </a>
+
+                <!-- Modul 3: User Flows & Workflows -->
+                <a href="user-flows.html" class="bg-surface border border-surfaceBorder hover:border-secondary rounded-2xl p-6 transition-all transform hover:-translate-y-1.5 shadow-lg group block">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 border border-secondary/30 text-secondary flex items-center justify-center text-2xl mb-4 group-hover:bg-secondary group-hover:text-primary transition-colors">
+                        🔀
                     </div>
-                    <button class="check-btn">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                    </button>
-                  </div>
+                    <h3 class="text-xl font-bold text-white group-hover:text-secondary transition-colors mb-2">Workflows & User Flows</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                        Routing-Logik (Athlete Performance vs. Coach Management) mit interaktiver Mermaid.js Visualisierung.
+                    </p>
+                    <span class="text-xs font-bold text-secondary inline-flex items-center gap-1">Workflows ansehen &rarr;</span>
+                </a>
 
-                  <!-- Exercise 2 -->
-                  <div class="exercise-card completed">
-                    <div class="exercise-thumb">
-                      <span style="font-size:1.4rem;">⚡</span>
-                      <div class="play-badge">▶</div>
+                <!-- Modul 4: Design System -->
+                <a href="design-system.html" class="bg-surface border border-surfaceBorder hover:border-secondary rounded-2xl p-6 transition-all transform hover:-translate-y-1.5 shadow-lg group block">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 border border-secondary/30 text-secondary flex items-center justify-center text-2xl mb-4 group-hover:bg-secondary group-hover:text-primary transition-colors">
+                        🎨
                     </div>
-                    <div class="exercise-info">
-                      <div class="exercise-title">10m Resisted Sprints</div>
-                      <div class="exercise-meta">5 Sätze × 1 Wdh • Schlitten/Band • Max Speed</div>
-                    </div>
-                    <button class="check-btn">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                    </button>
-                  </div>
-
-                  <!-- Exercise 3 -->
-                  <div class="exercise-card completed">
-                    <div class="exercise-thumb">
-                      <span style="font-size:1.4rem;">🏃</span>
-                      <div class="play-badge">▶</div>
-                    </div>
-                    <div class="exercise-info">
-                      <div class="exercise-title">Box-to-Box Intervalle</div>
-                      <div class="exercise-meta">6 Runden • 30s Sprint / 30s Trab</div>
-                    </div>
-                    <button class="check-btn">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                    </button>
-                  </div>
-
-                  <!-- Exercise 4 (Incomplete) -->
-                  <div class="exercise-card">
-                    <div class="exercise-thumb">
-                      <span style="font-size:1.4rem;">🧘</span>
-                      <div class="play-badge">▶</div>
-                    </div>
-                    <div class="exercise-info">
-                      <div class="exercise-title">Psoas & Hamstring Mobility</div>
-                      <div class="exercise-meta">3 Sätze × 45s pro Seite • Regeneration</div>
-                    </div>
-                    <button class="check-btn"></button>
-                  </div>
-
-                  <div style="margin-top:16px;">
-                    <button class="btn btn-primary" style="width:100%;" onclick="showToast('Workout gespeichert! Ausgezeichnete Leistung!')">
-                      <span>✓ Training für heute abschließen</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- SCREEN 4: POSITIONSTRAINING -->
-                <div id="screen-position" class="mobile-screen-view">
-                  <div class="m-section-title">
-                    <span>POSITIONSSPEZIFISCH</span>
-                    <span style="color:var(--color-neon);">4 Rollen</span>
-                  </div>
-
-                  <!-- Position Pills Selector -->
-                  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; margin-bottom:16px;">
-                    <button class="position-tab-pill active btn-sm" data-position="pos-zm" style="background:var(--color-neon); color:#000; font-weight:800; border-radius:10px;">ZM</button>
-                    <button class="position-tab-pill btn-sm" data-position="pos-st" style="border:1px solid var(--border-subtle); color:var(--text-secondary); border-radius:10px;">ST</button>
-                    <button class="position-tab-pill btn-sm" data-position="pos-iv" style="border:1px solid var(--border-subtle); color:var(--text-secondary); border-radius:10px;">IV</button>
-                    <button class="position-tab-pill btn-sm" data-position="pos-tw" style="border:1px solid var(--border-subtle); color:var(--text-secondary); border-radius:10px;">TW</button>
-                  </div>
-
-                  <!-- ZM Content -->
-                  <div class="position-drill-view" data-pos-view="pos-zm" style="display:block;">
-                    <div class="m-card" style="border-color:var(--border-neon);">
-                      <div style="font-size:0.72rem; color:var(--color-neon); font-weight:800;">ZENTRALES MITTELFELD (LUKAS)</div>
-                      <h3 style="font-size:1.05rem; margin:4px 0 6px;">Box-to-Box & Richtungswechsel</h3>
-                      <p style="font-size:0.8rem; margin-bottom:12px;">Hohe aerobe Kapazität kombiniert mit 180° Richtungswechseln unter Laktatbelastung.</p>
-                      <div style="background:var(--bg-dark); padding:10px; border-radius:10px; font-size:0.75rem; border:1px solid var(--border-subtle);">
-                        <div>• 5-10-5 Pro Agility Drill (3 Sätze)</div>
-                        <div>• Shuttle Runs mit Passball-Simulation</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- ST Content -->
-                  <div class="position-drill-view" data-pos-view="pos-st" style="display:none;">
-                    <div class="m-card" style="border-color:var(--border-neon);">
-                      <div style="font-size:0.72rem; color:var(--color-neon); font-weight:800;">STÜRMER & FLÜGEL (DAVID)</div>
-                      <h3 style="font-size:1.05rem; margin:4px 0 6px;">Maximaler 5m-Tiefenantritt</h3>
-                      <p style="font-size:0.8rem; margin-bottom:12px;">Explosiver erster Schritt um die Innenverteidiger auf den ersten Metern zu distanzieren.</p>
-                      <div style="background:var(--bg-dark); padding:10px; border-radius:10px; font-size:0.75rem; border:1px solid var(--border-subtle);">
-                        <div>• Falling Sprints aus Bauchlage (5 Wiederholungen)</div>
-                        <div>• Schusskraft-Rotationsübungen mit Seilzug</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- IV Content -->
-                  <div class="position-drill-view" data-pos-view="pos-iv" style="display:none;">
-                    <div class="m-card" style="border-color:var(--border-neon);">
-                      <div style="font-size:0.72rem; color:var(--color-neon); font-weight:800;">INNEN- & AUSSENVERTEIDIGER</div>
-                      <h3 style="font-size:1.05rem; margin:4px 0 6px;">Kopfball-Sprungkraft & Zweikampfhärte</h3>
-                      <p style="font-size:0.8rem; margin-bottom:12px;">Vertikaler Absprung aus dem Lauf und Rumpfstabilität gegen anstürmende Stürmer.</p>
-                      <div style="background:var(--bg-dark); padding:10px; border-radius:10px; font-size:0.75rem; border:1px solid var(--border-subtle);">
-                        <div>• Depth Jumps (Absprung nach Kastenlandung)</div>
-                        <div>• Anti-Rotations Pallof Press @ Kabelzug</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- TW Content -->
-                  <div class="position-drill-view" data-pos-view="pos-tw" style="display:none;">
-                    <div class="m-card" style="border-color:var(--border-neon);">
-                      <div style="font-size:0.72rem; color:var(--color-neon); font-weight:800;">TORWART</div>
-                      <h3 style="font-size:1.05rem; margin:4px 0 6px;">Reaktions-Explosivität & 1v1 Absprung</h3>
-                      <p style="font-size:0.8rem; margin-bottom:12px;">Laterale Sprungkraft in die Torecken und Schnellkraft aus der tiefen Hocke.</p>
-                      <div style="background:var(--bg-dark); padding:10px; border-radius:10px; font-size:0.75rem; border:1px solid var(--border-subtle);">
-                        <div>• Laterale Hürdensprünge mit Ballfang</div>
-                        <div>• Med-Ball Chest Throws für Weitabwürfe</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- SCREEN 5: ERNÄHRUNG & MAKROS -->
-                <div id="screen-nutrition" class="mobile-screen-view">
-                  <div class="m-section-title">
-                    <span>TAGES-MAKROS (LUKAS)</span>
-                    <span style="color:var(--color-neon);">2.850 kcal Ziel</span>
-                  </div>
-
-                  <!-- Macro Bars -->
-                  <div class="m-card">
-                    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; text-align:center; margin-bottom:12px;">
-                      <div>
-                        <div style="font-size:0.7rem; color:var(--text-secondary);">PROTEIN</div>
-                        <div style="font-size:1.1rem; font-weight:800; color:var(--color-neon);">165g</div>
-                        <div style="font-size:0.65rem; color:var(--color-turf);">130g getrackt</div>
-                      </div>
-                      <div>
-                        <div style="font-size:0.7rem; color:var(--text-secondary);">CARBS</div>
-                        <div style="font-size:1.1rem; font-weight:800; color:var(--color-cyan);">390g</div>
-                        <div style="font-size:0.65rem; color:var(--color-turf);">310g getrackt</div>
-                      </div>
-                      <div>
-                        <div style="font-size:0.7rem; color:var(--text-secondary);">FETTE</div>
-                        <div style="font-size:1.1rem; font-weight:800; color:var(--color-coral);">65g</div>
-                        <div style="font-size:0.65rem; color:var(--color-turf);">48g getrackt</div>
-                      </div>
-                    </div>
-                    <div style="width:100%; height:8px; background:var(--bg-dark); border-radius:4px; overflow:hidden; display:flex;">
-                      <div style="width:30%; background:var(--color-neon);"></div>
-                      <div style="width:50%; background:var(--color-cyan);"></div>
-                      <div style="width:20%; background:var(--color-coral);"></div>
-                    </div>
-                  </div>
-
-                  <!-- Matchday Guide -->
-                  <div class="m-section-title" style="margin-top:16px;">
-                    <span>SPIELTAGS-TIMING (SAMSTAG)</span>
-                  </div>
-                  <div class="m-card" style="border-color:var(--border-neon);">
-                    <div style="display:flex; gap:10px; margin-bottom:10px;">
-                      <span style="font-weight:800; color:var(--color-neon); font-size:0.8rem;">3-4h VORHER</span>
-                      <div style="font-size:0.8rem;">Pre-Match Mahlzeit: Reis mit Hähnchen, leicht verdauliche Carbs, wenig Fett.</div>
-                    </div>
-                    <div style="display:flex; gap:10px; margin-bottom:10px;">
-                      <span style="font-weight:800; color:var(--color-neon); font-size:0.8rem;">HALBZEIT</span>
-                      <div style="font-size:0.8rem;">Elektrolyt-Drink + 1/2 Banane (Sofortige Glykogen-Bereitstellung).</div>
-                    </div>
-                    <div style="display:flex; gap:10px;">
-                      <span style="font-weight:800; color:var(--color-neon); font-size:0.8rem;">POST-MATCH</span>
-                      <div style="font-size:0.8rem;">3:1 Carbs-zu-Protein Shake zur schnellen Muskel- und Glykogen-Regeneration.</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- SCREEN 6: FORTSCHRITT & BADGES -->
-                <div id="screen-progress" class="mobile-screen-view">
-                  <div class="m-section-title">
-                    <span>LEISTUNGSDIAGNOSTIK</span>
-                    <span style="color:var(--color-neon);">Letzte 30 Tage</span>
-                  </div>
-
-                  <!-- Sprint Graph Card -->
-                  <div class="m-card">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                      <div>
-                        <div style="font-size:0.75rem; color:var(--text-secondary);">10m SPRINTZEIT</div>
-                        <div style="font-size:1.4rem; font-weight:800; color:var(--color-neon);">1.71 s <span style="font-size:0.75rem; color:var(--color-turf);">-0.11s</span></div>
-                      </div>
-                      <span class="badge-neon" style="font-size:0.65rem;">PERSÖNLICHE BESTLEISTUNG</span>
-                    </div>
-
-                    <!-- SVG Chart -->
-                    <div style="height:90px; width:100%; position:relative;">
-                      <svg viewBox="0 0 300 90" width="100%" height="90" style="overflow:visible;">
-                        <path d="M 10,75 L 70,68 L 140,55 L 210,42 L 280,20" fill="none" stroke="var(--color-neon)" stroke-width="3" />
-                        <circle cx="10" cy="75" r="4" fill="#fff" />
-                        <circle cx="70" cy="68" r="4" fill="#fff" />
-                        <circle cx="140" cy="55" r="4" fill="#fff" />
-                        <circle cx="210" cy="42" r="4" fill="#fff" />
-                        <circle cx="280" cy="20" r="5" fill="var(--color-neon)" stroke="#000" stroke-width="2" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <!-- Badges -->
-                  <div class="m-section-title" style="margin-top:16px;">
-                    <span>FREIGESCHALTETE BADGES</span>
-                  </div>
-                  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
-                    <div style="background:var(--bg-card); border:1px solid var(--border-neon); border-radius:12px; padding:10px; text-align:center;">
-                      <div style="font-size:1.5rem;">⚡</div>
-                      <div style="font-size:0.7rem; font-weight:800; margin-top:4px;">Speed Demon</div>
-                    </div>
-                    <div style="background:var(--bg-card); border:1px solid var(--border-neon); border-radius:12px; padding:10px; text-align:center;">
-                      <div style="font-size:1.5rem;">🔥</div>
-                      <div style="font-size:0.7rem; font-weight:800; margin-top:4px;">14d Streak</div>
-                    </div>
-                    <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:10px; text-align:center; opacity:0.5;">
-                      <div style="font-size:1.5rem;">👑</div>
-                      <div style="font-size:0.7rem; font-weight:800; margin-top:4px;">Matchday MVP</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- SCREEN 7: COACH-CHAT (THOMAS) -->
-                <div id="screen-chat" class="mobile-screen-view">
-                  <div style="display:flex; align-items:center; gap:10px; padding-bottom:12px; border-bottom:1px solid var(--border-subtle); margin-bottom:12px;">
-                    <img src="assets/images/coach_thomas.jpg" alt="Coach Thomas" style="width:38px; height:38px; border-radius:50%; object-fit:cover; border:1.5px solid var(--color-neon);">
-                    <div style="flex:1;">
-                      <div style="font-weight:800; font-size:0.9rem;">Thomas Eder</div>
-                      <div style="font-size:0.68rem; color:var(--color-turf);">● Online • Antwortet meist in < 2h</div>
-                    </div>
-                    <button id="chat-upload-video-btn" class="btn btn-secondary btn-sm" style="padding:4px 8px; font-size:0.72rem;">
-                      <span>📹 Video senden</span>
-                    </button>
-                  </div>
-
-                  <!-- Chat Messages Stream -->
-                  <div id="mobile-chat-stream" class="chat-stream" style="max-height:360px; overflow-y:auto;">
-                    <div class="chat-bubble bubble-coach">
-                      <div style="font-size:0.7rem; font-weight:700; color:var(--color-neon); margin-bottom:2px;">Coach Thomas</div>
-                      Servus Lukas! Hab mir deine Sprint-Messung angesehen: 1.71s auf 10m ist extrem stark. Wie fühlen sich die Hamstrings an?
-                      <div class="voice-note-card">
-                        <span style="color:var(--color-neon);">▶ 0:42</span>
-                        <div style="height:4px; flex:1; background:var(--color-neon); border-radius:2px;"></div>
-                        <span style="font-size:0.65rem;">Sprachnachricht</span>
-                      </div>
-                      <div style="font-size:0.65rem; color:var(--text-muted); margin-top:4px;">Gestern 18:40</div>
-                    </div>
-
-                    <div class="chat-bubble bubble-user">
-                      Danke Thomas! Fühlen sich super an, kein Ziehen mehr. Soll ich die Resisted Sprints heute mit 10kg oder 12kg Schlitten machen?
-                      <div style="font-size:0.65rem; text-align:right; opacity:0.75; margin-top:2px;">Heute 09:12</div>
-                    </div>
-
-                    <div class="chat-bubble bubble-coach">
-                      <div style="font-size:0.7rem; font-weight:700; color:var(--color-neon); margin-bottom:2px;">Coach Thomas</div>
-                      Bleib bei 10kg! Wir wollen heute reine Übertragung auf Maximalkraft, ohne dass deine Schrittlänge leidet. Vollgas! ⚡
-                      <div style="font-size:0.65rem; color:var(--text-muted); margin-top:4px;">Heute 09:15</div>
-                    </div>
-                  </div>
-
-                  <!-- Chat Input Box -->
-                  <div style="display:flex; gap:6px; margin-top:12px; padding-top:8px; border-top:1px solid var(--border-subtle);">
-                    <input id="chat-input-field" type="text" placeholder="Nachricht an Thomas..." style="flex:1; padding:10px 14px; border-radius:20px; background:var(--bg-elevated); color:#fff; border:1px solid var(--border-subtle); font-size:0.8rem;">
-                    <button id="chat-send-btn" class="btn btn-primary" style="border-radius:20px; padding:8px 14px; font-size:0.8rem;">
-                      <span>Senden</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- SCREEN 8: PROFIL & ABO -->
-                <div id="screen-profile" class="mobile-screen-view">
-                  <div style="text-align:center; padding:10px 0 16px;">
-                    <img src="assets/images/player_lukas.jpg" alt="Lukas Wallner" style="width:72px; height:72px; border-radius:50%; object-fit:cover; border:2px solid var(--color-neon); margin-bottom:8px;">
-                    <h3 style="font-size:1.15rem;">Lukas Wallner</h3>
-                    <div style="font-size:0.75rem; color:var(--color-neon); font-weight:700;">Zentrales Mittelfeld • SV Hallwang U17</div>
-                  </div>
-
-                  <div class="m-card" style="border-color:var(--border-neon); background:linear-gradient(135deg,#15202B 0%, #10151C 100%);">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                      <span class="badge-neon" style="font-size:0.65rem;">AKTIVES ABO</span>
-                      <span style="font-size:0.75rem; color:var(--color-neon); font-weight:800;">24,99€ / Mo</span>
-                    </div>
-                    <div style="font-weight:800; font-size:0.95rem;">Field Ready Premium</div>
-                    <p style="font-size:0.75rem; margin-top:2px; margin-bottom:10px;">Positionsspezifische Pläne & Makro-Guide aktiv.</p>
-                    <button class="btn btn-outline-neon btn-sm" style="width:100%;" onclick="showToast('Upgrade auf 1:1 Coaching angefragt!')">
-                      <span>Upgrade auf 1:1 Coaching →</span>
-                    </button>
-                  </div>
-
-                  <div class="m-card">
-                    <div style="font-size:0.75rem; font-weight:800; color:var(--text-secondary); margin-bottom:8px;">EINSTELLUNGEN</div>
-                    <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border-subtle); font-size:0.8rem;">
-                      <span>Push-Erinnerung für Workouts</span>
-                      <span style="color:var(--color-neon); font-weight:700;">17:00 Uhr</span>
-                    </div>
-                    <div style="display:flex; justify-content:space-between; padding:8px 0; font-size:0.8rem;">
-                      <span>Spieltag-Benachrichtigungen</span>
-                      <span style="color:var(--color-turf); font-weight:700;">Aktiv</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- COACH ADMIN DASHBOARD SCREEN -->
-                <div id="screen-coach-admin" class="mobile-screen-view">
-                  <div style="background:rgba(0,229,117,0.1); border:1px solid var(--color-turf); border-radius:12px; padding:10px; margin-bottom:14px; display:flex; align-items:center; gap:10px;">
-                    <span style="font-size:1.3rem;">👑</span>
-                    <div>
-                      <div style="font-size:0.8rem; font-weight:800; color:var(--color-turf);">COACH DASHBOARD (THOMAS EDER)</div>
-                      <div style="font-size:0.68rem; color:var(--text-secondary);">Admin-Ansicht: 28 betreute Athleten</div>
-                    </div>
-                  </div>
-
-                  <div class="m-section-title">
-                    <span>ATHLETEN ÜBERSICHT</span>
-                  </div>
-
-                  <!-- Player 1: Lukas -->
-                  <div class="m-card" style="border-left:3px solid var(--color-neon); margin-bottom:8px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                      <div style="display:flex; align-items:center; gap:8px;">
-                        <img src="assets/images/player_lukas.jpg" alt="Lukas" style="width:30px; height:30px; border-radius:50%; object-fit:cover;">
-                        <div>
-                          <div style="font-weight:800; font-size:0.82rem;">Lukas Wallner (ZM)</div>
-                          <div style="font-size:0.68rem; color:var(--color-neon);">75% absolviert • Streak: 14d</div>
-                        </div>
-                      </div>
-                      <button class="btn btn-secondary btn-sm" style="padding:4px 8px; font-size:0.68rem;" onclick="showToast('Trainingsplan an Lukas gesendet!')">Plan zuweisen</button>
-                    </div>
-                  </div>
-
-                  <!-- Player 2: David -->
-                  <div class="m-card" style="border-left:3px solid var(--color-coral); margin-bottom:8px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                      <div style="display:flex; align-items:center; gap:8px;">
-                        <img src="assets/images/player_david.jpg" alt="David" style="width:30px; height:30px; border-radius:50%; object-fit:cover;">
-                        <div>
-                          <div style="font-weight:800; font-size:0.82rem;">David Steiner (ST)</div>
-                          <div style="font-size:0.68rem; color:var(--color-coral);">Wartet auf Video-Feedback 📹</div>
-                        </div>
-                      </div>
-                      <button class="btn btn-primary btn-sm" style="padding:4px 8px; font-size:0.68rem;" onclick="showToast('Videoanalyse für David geöffnet!')">Feedback geben</button>
-                    </div>
-                  </div>
-                </div>
-
-              </div> <!-- End Screen Scroll -->
-
-              <!-- iOS Bottom Tab Bar (5 Tabs) -->
-              <nav class="ios-tab-bar">
-                <div class="tab-item active" data-screen-target="screen-home">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                  <span>Home</span>
-                </div>
-                <div class="tab-item" data-screen-target="screen-training">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M6 5v14M18 5v14M2 9h20M2 15h20"/></svg>
-                  <span>Training</span>
-                </div>
-                <div class="tab-item" data-screen-target="screen-nutrition">
-                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                  <span>Ernährung</span>
-                </div>
-                <div class="tab-item" data-screen-target="screen-progress">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-                  <span>Fortschritt</span>
-                </div>
-                <div class="tab-item" data-screen-target="screen-chat">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                  <span>Chat</span>
-                </div>
-              </nav>
-
-              <!-- iOS Home Indicator bar -->
-              <div class="ios-home-indicator"></div>
+                    <h3 class="text-xl font-bold text-white group-hover:text-secondary transition-colors mb-2">Designfarben & System</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                        Auf einer eigenen Seite: Electric Volt (#CCFF00), Turf Green (#00E575), Deep Pitch (#080A0D), Shade Scales & Typografie.
+                    </p>
+                    <span class="text-xs font-bold text-secondary inline-flex items-center gap-1">Farbpalette prüfen &rarr;</span>
+                </a>
             </div>
-          </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-surfaceBorder py-8 text-slate-500 text-xs">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <strong>FIELD READY</strong> • Gegründet von Thomas Eder (18), Dipl. Fitnessinstruktor & Fußballspezialist.
+            </div>
+            <div>
+                Strategie- und UX-Architektur nach Vorbild von <span class="text-slate-400">lacheiner.net/langerstrategy</span>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </footer>
 
-  <!-- ========================================================================
-       SECTION 3: DESIGN SYSTEM & BRANDING GUIDE
-       ======================================================================== -->
-  <main id="tab-design-system" class="portal-section">
-    <div class="container ds-container">
-      <div class="ds-header">
-        <span class="badge-neon">MATURA DESIGN SYSTEM</span>
-        <h1 style="margin-top:12px;">Field Ready UI Architecture</h1>
-        <p class="ds-subtitle" style="max-width:680px; margin:8px auto 0;">
-          Wiederverwendbare Komponenten, 8px-Spacing-Raster, Farbtoken mit WCAG-Kontrast und typografische Hierarchie für Sportmarken-Präsenz im Nike/Whoop-Stil.
-        </p>
-      </div>
-
-      <!-- 1. Brand Logo & Symbol -->
-      <section class="ds-section-block">
-        <h2 class="ds-title">⚡ Markenlogo & Icon-Konstruktion</h2>
-        <p class="ds-subtitle">Das Logo vereint ein athletisches Schutzschild (Körperhärte), Spielfeldlinien und einen vorwärtsgerichteten Neongrün-Blitz (Explosivität & Sprintspeed).</p>
-
-        <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:20px; padding:32px; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; align-items:center;">
-          <div style="display:flex; flex-direction:column; align-items:center; padding:24px; background:#080A0D; border:1px solid var(--border-subtle); border-radius:16px;">
-            <svg viewBox="0 0 100 100" width="100" height="100" fill="none">
-              <polygon points="50,4 92,26 92,74 50,96 8,74 8,26" stroke="#CCFF00" stroke-width="4.5" fill="#0C1014" />
-              <path d="M32 30 H70 L58 48 H42 L36 72 H24 Z" fill="#CCFF00" />
-              <path d="M54 48 H72 L60 72 H42 Z" fill="#FFFFFF" opacity="0.9" />
-            </svg>
-            <div style="margin-top:16px; font-weight:900; font-family:var(--font-heading); font-size:1.25rem;">FIELD READY</div>
-            <div style="font-size:0.7rem; color:var(--color-neon); letter-spacing:0.15em; text-transform:uppercase;">Primary Dark Mode Icon</div>
-          </div>
-
-          <div>
-            <h3 style="font-size:1.1rem; margin-bottom:10px;">Gestaltungsprinzipien des Logos</h3>
-            <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:var(--text-secondary);">
-              <li>• <strong>Hexagonales Spielfeld-Schild:</strong> Symbolisiert defensive Stabilität und Teamdisziplin.</li>
-              <li>• <strong>Dynamische Diagonale:</strong> Vorwärtsdrang mit 22°-Winkel für Schnelligkeit und Antritt.</li>
-              <li>• <strong>Farbkontrast:</strong> Reines Neongrün (#CCFF00) auf tiefem Pitch Black erzeugt maximale visuelle Durchschlagskraft.</li>
-              <li>• <strong>Sicherheitsabstand:</strong> Mindestens 1x Blitzbreite umlaufender Weißraum.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2. Farbpalette & Token -->
-      <section class="ds-section-block">
-        <h2 class="ds-title">🎨 Farbpalette & Semantische Token (Klick zum Kopieren)</h2>
-        <p class="ds-subtitle">Hoher Kontrast nach WCAG 2.1 AA & AAA für optimale Lesbarkeit auf dem Sportplatz bei Sonnenlicht oder Flutlicht.</p>
-
-        <div class="color-swatch-grid">
-          <div class="color-card" data-hex="#CCFF00">
-            <div class="color-preview" style="background:#CCFF00;">
-              <span style="color:#000; font-weight:800; font-size:0.75rem;">PRIMARY</span>
-            </div>
-            <div class="color-meta">
-              <div class="color-name">Electric Volt</div>
-              <div class="color-hex">#CCFF00 • RGB(204,255,0)</div>
-              <div class="color-usage">CTA-Buttons, Streaks, Hauptakzente</div>
-            </div>
-          </div>
-
-          <div class="color-card" data-hex="#00E575">
-            <div class="color-preview" style="background:#00E575;">
-              <span style="color:#000; font-weight:800; font-size:0.75rem;">TURF SUCCESS</span>
-            </div>
-            <div class="color-meta">
-              <div class="color-name">Pitch Turf Green</div>
-              <div class="color-hex">#00E575 • RGB(0,229,117)</div>
-              <div class="color-usage">Erledigt-Status, Checkmarks, Erfolge</div>
-            </div>
-          </div>
-
-          <div class="color-card" data-hex="#080A0D">
-            <div class="color-preview" style="background:#080A0D; border:1px solid #232B38;">
-              <span style="color:#fff; font-weight:800; font-size:0.75rem;">SURFACE BASE</span>
-            </div>
-            <div class="color-meta">
-              <div class="color-name">Pitch Black</div>
-              <div class="color-hex">#080A0D • RGB(8,10,13)</div>
-              <div class="color-usage">Hintergrund Canvas, Phone Body</div>
-            </div>
-          </div>
-
-          <div class="color-card" data-hex="#141922">
-            <div class="color-preview" style="background:#141922; border:1px solid #232B38;">
-              <span style="color:#fff; font-weight:800; font-size:0.75rem;">CARD SURFACE</span>
-            </div>
-            <div class="color-meta">
-              <div class="color-name">Slate Card</div>
-              <div class="color-hex">#141922 • RGB(20,25,34)</div>
-              <div class="color-usage">Karten, Übungsmodule, Panels</div>
-            </div>
-          </div>
-
-          <div class="color-card" data-hex="#FFFFFF">
-            <div class="color-preview" style="background:#FFFFFF;">
-              <span style="color:#000; font-weight:800; font-size:0.75rem;">TEXT PRIMARY</span>
-            </div>
-            <div class="color-meta">
-              <div class="color-name">Pure White</div>
-              <div class="color-hex">#FFFFFF • RGB(255,255,255)</div>
-              <div class="color-usage">Überschriften, Haupttext</div>
-            </div>
-          </div>
-
-          <div class="color-card" data-hex="#94A3B8">
-            <div class="color-preview" style="background:#94A3B8;">
-              <span style="color:#000; font-weight:800; font-size:0.75rem;">TEXT MUTED</span>
-            </div>
-            <div class="color-meta">
-              <div class="color-name">Slate Gray</div>
-              <div class="color-hex">#94A3B8 • RGB(148,163,184)</div>
-              <div class="color-usage">Fließtext, Metadaten, Platzhalter</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. Typografie -->
-      <section class="ds-section-block">
-        <h2 class="ds-title">🔤 Typografie-Hierarchie & Anwendung</h2>
-        <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:20px; padding:32px;">
-          <div style="display:grid; grid-template-columns:140px 1fr 140px; gap:16px; padding-bottom:16px; border-bottom:1px solid var(--border-subtle); font-size:0.75rem; font-weight:800; color:var(--text-muted); text-transform:uppercase;">
-            <div>Level / Token</div>
-            <div>Vorschau & Schriftart</div>
-            <div>Größe / Zeile</div>
-          </div>
-
-          <div style="display:grid; grid-template-columns:140px 1fr 140px; gap:16px; padding:18px 0; border-bottom:1px solid var(--border-subtle); align-items:center;">
-            <div style="font-weight:700; color:var(--color-neon);">Heading 1 (Hero)</div>
-            <div style="font-family:var(--font-heading); font-size:2rem; font-weight:900;">WERDE DER SPIELER</div>
-            <div style="font-size:0.8rem; color:var(--text-secondary);">32px / 1.1 / -0.02em</div>
-          </div>
-
-          <div style="display:grid; grid-template-columns:140px 1fr 140px; gap:16px; padding:18px 0; border-bottom:1px solid var(--border-subtle); align-items:center;">
-            <div style="font-weight:700; color:var(--color-neon);">Heading 2 (Section)</div>
-            <div style="font-family:var(--font-heading); font-size:1.5rem; font-weight:800;">EXPLOSIVKRAFT & SCHNELLIGKEIT</div>
-            <div style="font-size:0.8rem; color:var(--text-secondary);">24px / 1.2 / -0.01em</div>
-          </div>
-
-          <div style="display:grid; grid-template-columns:140px 1fr 140px; gap:16px; padding:18px 0; border-bottom:1px solid var(--border-subtle); align-items:center;">
-            <div style="font-weight:700; color:var(--color-neon);">Body Large</div>
-            <div style="font-family:var(--font-body); font-size:1rem; color:var(--text-primary);">Dein digitaler Athletik-Coach für jede Spielminute.</div>
-            <div style="font-size:0.8rem; color:var(--text-secondary);">16px / 1.5 / 0</div>
-          </div>
-
-          <div style="display:grid; grid-template-columns:140px 1fr 140px; gap:16px; padding:18px 0; align-items:center;">
-            <div style="font-weight:700; color:var(--color-neon);">Caption / Badge</div>
-            <div style="font-family:var(--font-heading); font-size:0.75rem; font-weight:800; color:var(--color-neon); text-transform:uppercase; letter-spacing:0.05em;">MITTELFELD SPEZIFISCH</div>
-            <div style="font-size:0.8rem; color:var(--text-secondary);">12px / 1.2 / 0.05em</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. UI-Komponenten Sandbox -->
-      <section class="ds-section-block">
-        <h2 class="ds-title">🧩 Interaktive Komponenten-Bibliothek</h2>
-        <div class="component-sandbox">
-          <div>
-            <div style="font-size:0.8rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:12px;">Button Varianten & States</div>
-            <div class="sandbox-row">
-              <button class="btn btn-primary">Primary Action</button>
-              <button class="btn btn-secondary">Secondary Action</button>
-              <button class="btn btn-outline-neon">Outline Neon</button>
-              <button class="btn btn-primary btn-sm">Small Button</button>
-              <button class="btn btn-secondary" style="opacity:0.4; cursor:not-allowed;">Disabled State</button>
-            </div>
-          </div>
-
-          <div>
-            <div style="font-size:0.8rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:12px;">Badges & Position Tags</div>
-            <div class="sandbox-row">
-              <span class="badge-neon">⚡ Speed Focus</span>
-              <span class="badge-neon" style="color:var(--color-cyan); border-color:var(--color-cyan); background:rgba(6,182,212,0.1);">Zentrales Mittelfeld</span>
-              <span class="badge-neon" style="color:var(--color-coral); border-color:var(--color-coral); background:rgba(255,90,95,0.1);">Stürmer</span>
-              <span class="badge-neon" style="color:var(--color-turf); border-color:var(--color-turf); background:rgba(0,229,117,0.1);">✓ Abgeschlossen</span>
-            </div>
-          </div>
-
-          <div>
-            <div style="font-size:0.8rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:12px;">8px Spacing Grid System</div>
-            <div style="display:flex; align-items:flex-end; gap:8px;">
-              <div style="text-align:center;"><div style="width:24px; height:8px; background:var(--color-neon);"></div><span style="font-size:0.65rem;">8px</span></div>
-              <div style="text-align:center;"><div style="width:24px; height:16px; background:var(--color-neon);"></div><span style="font-size:0.65rem;">16px</span></div>
-              <div style="text-align:center;"><div style="width:24px; height:24px; background:var(--color-neon);"></div><span style="font-size:0.65rem;">24px</span></div>
-              <div style="text-align:center;"><div style="width:24px; height:32px; background:var(--color-neon);"></div><span style="font-size:0.65rem;">32px</span></div>
-              <div style="text-align:center;"><div style="width:24px; height:48px; background:var(--color-neon);"></div><span style="font-size:0.65rem;">48px</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- ========================================================================
-       SECTION 4: PERSONAS & EMPATHIE-MAPS (3 VOLLSTÄNDIGE PERSONAS)
-       ======================================================================== -->
-  <main id="tab-personas" class="portal-section">
-    <div class="container ds-container">
-      <div class="ds-header">
-        <span class="badge-neon">MATURA ZIELGRUPPENANALYSE</span>
-        <h1 style="margin-top:12px;">3 Detaillierte Personas & Empathie-Maps</h1>
-        <p class="ds-subtitle" style="max-width:700px; margin:8px auto 0;">
-          Wissenschaftlich fundierte Nutzerprofile für die Matura-Arbeit: Coach Thomas Eder (Admin/Betreiber), Lukas Wallner (Hauptnutzer / Jugend-Mittelfeld) und David Steiner (Amateur-Stürmer).
-        </p>
-      </div>
-
-      <div class="personas-grid">
-
-        <!-- PERSONA 1: THOMAS EDER (COACH & GRÜNDER) -->
-        <article class="persona-full-card">
-          <div class="persona-header-grid">
-            <div class="persona-avatar-box">
-              <img src="assets/images/coach_thomas.jpg" alt="Thomas Eder Portrait">
-            </div>
-            <div class="persona-quick-info">
-              <span class="persona-role-tag">PERSONA 1 • COACH & GRÜNDER (ADMIN-SICHT)</span>
-              <h3>Thomas Eder (18)</h3>
-              <p style="font-size:0.95rem; color:#FFFFFF; margin-bottom:12px;">
-                Zertifizierter Fitnessinstruktor, Fußballspezialist und Gründer von Field Ready. Baut seine Reichweite über TikTok & Instagram auf.
-              </p>
-              <div class="persona-traits">
-                <span class="trait-pill">📍 Wien, Österreich</span>
-                <span class="trait-pill">🎓 Dipl. Fitnessinstruktor</span>
-                <span class="trait-pill">📱 Creator (@fieldready.coach)</span>
-                <span class="trait-pill">⚽ Ex-Nachwuchsspieler</span>
-                <span class="trait-pill">🚀 Gründergeist & Visionär</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Empathy Map Quadrants -->
-          <div class="empathy-map-box">
-            <div class="empathy-map-title">
-              <span>🧠 Empathie-Map: Thomas Eder</span>
-            </div>
-            <div class="empathy-grid">
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">🗣️ Was er SAGT</div>
-                <ul class="quadrant-list">
-                  <li>„Die meisten Jugendspieler trainieren im Fitnessstudio komplett falsch für Fußball.“</li>
-                  <li>„Ich will 50 Spielern gleichzeitig eine professionelle Betreuung ermöglichen, ohne an Qualität zu verlieren.“</li>
-                  <li>„Erfolg im Spiel entsteht nicht durch Glück, sondern durch Vorbereitung.“</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">💭 Was er DENKT</div>
-                <ul class="quadrant-list">
-                  <li>„Nehmen mich ältere Spieler und Trainer trotz meiner 18 Jahre voll ernst?“</li>
-                  <li>„WhatsApp und Excel-Tabellen kosten mich 3 Stunden jeden Abend – ich brauche ein automatisiertes System.“</li>
-                  <li>„Wenn meine Spieler schnellere Sprintzeiten messen, spricht sich das sofort im Verein herum.“</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">🎬 Was er TUT</div>
-                <ul class="quadrant-list">
-                  <li>Dreht 4K-Übungsvideos und postet täglich Athletiktipps auf TikTok & Reels.</li>
-                  <li>Analysiert Sprinttechnik-Videos von Spielern Bild für Bild.</li>
-                  <li>Passt Trainingspläne individuell an Spieltage und Verletzungshistorien an.</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">❤️ Was er FÜHLT</div>
-                <ul class="quadrant-list">
-                  <li>Enorme Leidenschaft für Fußballathletik und den Erfolg seiner Schützlinge.</li>
-                  <li>Manchmal Druck, allen Spielern schnell genug fundiertes Feedback zu geben.</li>
-                  <li>Stolz, wenn ein Spieler nach Wochen gezieltem Training den Stammplatz erobert.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pains & Gains -->
-          <div class="pain-gain-grid">
-            <div class="pain-box">
-              <div style="font-weight:800; font-size:0.85rem; color:var(--color-coral); margin-bottom:8px;">FRUSTRATIONEN & PAINS</div>
-              <ul style="font-size:0.82rem; color:var(--text-secondary); list-style:none; display:flex; flex-direction:column; gap:6px;">
-                <li>• Spieler brechen das Training ab, wenn sie keinen schnellen messbaren Fortschritt sehen.</li>
-                <li>• Manuelle Planzusammenstellung frisst zu viel Zeit für Neukundenakquise.</li>
-                <li>• Vertrauensaufbau als junger Trainer erfordert stichhaltige Daten und Professionalität.</li>
-              </ul>
-            </div>
-            <div class="gain-box">
-              <div style="font-weight:800; font-size:0.85rem; color:var(--color-turf); margin-bottom:8px;">BEDÜRFNISSE & ZIELE</div>
-              <ul style="font-size:0.82rem; color:var(--text-secondary); list-style:none; display:flex; flex-direction:column; gap:6px;">
-                <li>• Übersichtliches Dashboard mit allen Spielern und Fortschrittsdaten auf einen Blick.</li>
-                <li>• 1-Klick-Zuweisung von modularisierten Trainingsplänen.</li>
-                <li>• Skalierbare Personal Brand und nachhaltiges Abo-Modell.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-
-        <!-- PERSONA 2: LUKAS WALLNER (SPIELER / HAUPTNUTZER) -->
-        <article class="persona-full-card">
-          <div class="persona-header-grid">
-            <div class="persona-avatar-box">
-              <img src="assets/images/player_lukas.jpg" alt="Lukas Wallner Portrait">
-            </div>
-            <div class="persona-quick-info">
-              <span class="persona-role-tag">PERSONA 2 • SPIELER & HAUPTNUTZER</span>
-              <h3>Lukas Wallner (16)</h3>
-              <p style="font-size:0.95rem; color:#FFFFFF; margin-bottom:12px;">
-                U17-Mittelfeldspieler im Nachwuchs. Hoch motiviert, will sich gegen ältere Gegenspieler durchsetzen und den Sprung in die Kampfmannschaft schaffen.
-              </p>
-              <div class="persona-traits">
-                <span class="trait-pill">📍 Salzburg-Umgebung</span>
-                <span class="trait-pill">⚽ Zentrales Mittelfeld (ZM)</span>
-                <span class="trait-pill">🏟️ SV Hallwang U17</span>
-                <span class="trait-pill">📱 Mobile First (TikTok, IG, WhatsApp)</span>
-                <span class="trait-pill">🎯 Ziel: U18 Akademie-Kader</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Empathy Map Quadrants -->
-          <div class="empathy-map-box">
-            <div class="empathy-map-title">
-              <span>🧠 Empathie-Map: Lukas Wallner</span>
-            </div>
-            <div class="empathy-grid">
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">🗣️ Was er SAGT</div>
-                <ul class="quadrant-list">
-                  <li>„Ich will der Fitteste auf dem Platz sein und ab Minute 70 noch jeden Ball ablaufen.“</li>
-                  <li>„Im Verein machen wir nur Hütchen-Passübungen, aber niemand zeigt uns echtes Krafttraining.“</li>
-                  <li>„Was genau soll ich zwei Stunden vor dem Samstagsspiel essen, damit ich keine Seitenstiche kriege?“</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">💭 Was er DENKT</div>
-                <ul class="quadrant-list">
-                  <li>„Mein Konkurrent im Team ist körperlich robuster. Wenn ich nicht zulege, sitze ich Samstag auf der Bank.“</li>
-                  <li>„Ein privater Personal Trainer kostet 80€ pro Stunde – das kann ich mir vom Taschengeld niemals leisten.“</li>
-                  <li>„Ich hoffe die Übungen machen mich nicht unbeweglich und langsam.“</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">🎬 Was er TUT</div>
-                <ul class="quadrant-list">
-                  <li>Scrollt auf TikTok nach Fußball-Übungen und probiert wahllose Workouts im Gym aus.</li>
-                  <li>Vergisst oft seine Fortschritte aufzuschreiben und verliert nach 2 Wochen die Struktur.</li>
-                  <li>Greift nach dem Training aus Bequemlichkeit zu Fertiggerichten.</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">❤️ Was er FÜHLT</div>
-                <ul class="quadrant-list">
-                  <li>Großer Ehrgeiz und Motivation durch Vorbilder wie Jude Bellingham und Jamal Musiala.</li>
-                  <li>Frustration, wenn der Trainer ihm mangelnde Zweikampfhärte vorwirft.</li>
-                  <li>Erleichterung und Stolz, wenn ihm ein Coach klare Anweisungen gibt.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pains & Gains -->
-          <div class="pain-gain-grid">
-            <div class="pain-box">
-              <div style="font-weight:800; font-size:0.85rem; color:var(--color-coral); margin-bottom:8px;">FRUSTRATIONEN & PAINS</div>
-              <ul style="font-size:0.82rem; color:var(--text-secondary); list-style:none; display:flex; flex-direction:column; gap:6px;">
-                <li>• Kein klarer roter Faden im Gym; Angst vor falscher Ausführung.</li>
-                <li>• Motivation bricht ein, wenn Feedback und messbare Fortschritte fehlen.</li>
-                <li>• Unsicherheit bei Ernährung und Flüssigkeitszufuhr an Spieltagen.</li>
-              </ul>
-            </div>
-            <div class="gain-box">
-              <div style="font-weight:800; font-size:0.85rem; color:var(--color-turf); margin-bottom:8px;">BEDÜRFNISSE & ZIELE</div>
-              <ul style="font-size:0.82rem; color:var(--text-secondary); list-style:none; display:flex; flex-direction:column; gap:6px;">
-                <li>• Einfache, motivierende App mit Streak-Counter und klaren Video-Anleitungen.</li>
-                <li>• Direkter Draht zu Thomas Eder für Bestätigung und Korrektur.</li>
-                <li>• Messbarer Antrittsgewinn (+0.2s im 10m Sprint).</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-
-        <!-- PERSONA 3: DAVID STEINER (AMATEURSTÜRMER) -->
-        <article class="persona-full-card">
-          <div class="persona-header-grid">
-            <div class="persona-avatar-box">
-              <img src="assets/images/player_david.jpg" alt="David Steiner Portrait">
-            </div>
-            <div class="persona-quick-info">
-              <span class="persona-role-tag">PERSONA 3 • AMATEURSTÜRMER & ATHLET</span>
-              <h3>David Steiner (19)</h3>
-              <p style="font-size:0.95rem; color:#FFFFFF; margin-bottom:12px;">
-                Stürmer in der 1. Mannschaft (Bezirksliga), Student. Will maximale Explosivität im 5m-Antritt und verletzungsfreie Muskelmasse aufbauen.
-              </p>
-              <div class="persona-traits">
-                <span class="trait-pill">📍 Oberösterreich</span>
-                <span class="trait-pill">⚽ Mittelstürmer (ST)</span>
-                <span class="trait-pill">🏟️ Kampfmannschaft Bezirksliga</span>
-                <span class="trait-pill">🎓 Student (Maschinenbau)</span>
-                <span class="trait-pill">🎯 Ziel: Torschützenkönig & Regionalliga</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Empathy Map Quadrants -->
-          <div class="empathy-map-box">
-            <div class="empathy-map-title">
-              <span>🧠 Empathie-Map: David Steiner</span>
-            </div>
-            <div class="empathy-grid">
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">🗣️ Was er SAGT</div>
-                <ul class="quadrant-list">
-                  <li>„In den ersten drei Schritten muss ich am Verteidiger vorbei sein – darauf kommt es im Strafraum an.“</li>
-                  <li>„Ich brauche Übungen, die ich zeitlich perfekt zwischen Studium und 3x Vereinstraining einbauen kann.“</li>
-                  <li>„Keine Muskelkater mehr am Spieltag – die Periodisierung muss stimmen.“</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">💭 Was er DENKT</div>
-                <ul class="quadrant-list">
-                  <li>„Mein Zeitfenster für den Sprung in eine höhere Liga schließt sich mit 19/20 langsam.“</li>
-                  <li>„Wenn ich wieder eine Hamstring-Zerrung bekomme, falle ich 6 Wochen aus – Verletzungsprävention ist alles.“</li>
-                  <li>„Ich will datenbasierte Leistungsdiagnostik statt Bauchgefühl.“</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">🎬 Was er TUT</div>
-                <ul class="quadrant-list">
-                  <li>Trainiert diszipliniert, hat aber oft Überlastungserscheinungen in der Patellasehne.</li>
-                  <li>Filmt seine Kniebeugen und Sprints selbst, um Haltungsfehler zu analysieren.</li>
-                  <li>Liest Fachartikel zu Regenerationsmaßnahmen und Elektrolythaushalt.</li>
-                </ul>
-              </div>
-
-              <div class="empathy-quadrant">
-                <div class="quadrant-tag">❤️ Was er FÜHLT</div>
-                <ul class="quadrant-list">
-                  <li>Fokussiert, ehrgeizig, aber auch ungeduldig bei Plateaus.</li>
-                  <li>Angst vor Muskelverletzungen im Sprint.</li>
-                  <li>Extremer Hunger nach Performance-Steigerung und Toren.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pains & Gains -->
-          <div class="pain-gain-grid">
-            <div class="pain-box">
-              <div style="font-weight:800; font-size:0.85rem; color:var(--color-coral); margin-bottom:8px;">FRUSTRATIONEN & PAINS</div>
-              <ul style="font-size:0.82rem; color:var(--text-secondary); list-style:none; display:flex; flex-direction:column; gap:6px;">
-                <li>• Häufige Überlastungen der Oberschenkelrückseite durch fehlende Belastungssteuerung.</li>
-                <li>• Mangelnde Synchronisation von Fitnesstraining und Spieltagen.</li>
-              </ul>
-            </div>
-            <div class="gain-box">
-              <div style="font-weight:800; font-size:0.85rem; color:var(--color-turf); margin-bottom:8px;">BEDÜRFNISSE & ZIELE</div>
-              <ul style="font-size:0.82rem; color:var(--text-secondary); list-style:none; display:flex; flex-direction:column; gap:6px;">
-                <li>• Stürmerspezifisches Training (Reaktivkraft, Schusskraft, Tiefensprints).</li>
-                <li>• Direkte Videoanalyse seiner Sprintmechanik durch Thomas Eder.</li>
-                <li>• Smarte Periodisierung mit In-Season Belastungsmanagement.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </main>
-
-  <!-- ========================================================================
-       SECTION 5: MATURA DOKUMENTATION & PROJEKTKONZEPT
-       ======================================================================== -->
-  <main id="tab-docs" class="portal-section">
-    <div class="container ds-container">
-      <div class="ds-header">
-        <span class="badge-neon">MATURA-DIPLOMARBEIT</span>
-        <h1 style="margin-top:12px;">Projektkonzept & Begründung</h1>
-        <p class="ds-subtitle" style="max-width:680px; margin:8px auto 0;">
-          Wissenschaftliche und strategische Herleitung des Matura-Projekts von Thomas Eder.
-        </p>
-      </div>
-
-      <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:24px; padding:36px; display:flex; flex-direction:column; gap:32px;">
-        <div>
-          <h2 style="font-size:1.35rem; color:var(--color-neon); margin-bottom:8px;">1. Ausgangslage & Marktlücke</h2>
-          <p style="line-height:1.7;">
-            Im Jugend- und Amateurfußball existiert eine signifikante Kluft: Vereine konzentrieren sich fast ausschließlich auf fußballtaktische Spielformen, während individuelles Athletik-, Sprint- und Krafttraining vernachlässigt wird. Gleichzeitig sind professionelle 1:1 Personal Trainer für 15- bis 20-jährige Amateursportler unerschwinglich (Kostenpunkt 80–120 € pro Stunde). Allgemeine Fitness-Apps (z.B. Freeletics, McFit) ignorieren fußballspezifische Bewegungsmuster und führen oft zu unbeweglichen Muskelmassen und Überlastungen. <strong>Field Ready</strong> schließt diese Lücke durch skalierbares, positionsspezifisches digitales Coaching.
-          </p>
-        </div>
-
-        <div>
-          <h2 style="font-size:1.35rem; color:var(--color-neon); margin-bottom:8px;">2. Warum vorerst Website statt nativer Store-App?</h2>
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-top:12px;">
-            <div style="background:var(--bg-dark); padding:18px; border-radius:14px; border:1px solid var(--border-subtle);">
-              <div style="font-weight:800; font-size:0.9rem; color:#fff; margin-bottom:4px;">🚀 0-Barriere Einstieg</div>
-              <p style="font-size:0.8rem;">Kein Download im App Store nötig. Nutzer auf TikTok oder Instagram klicken den Link in der Bio und können sofort loslegen.</p>
-            </div>
-            <div style="background:var(--bg-dark); padding:18px; border-radius:14px; border:1px solid var(--border-subtle);">
-              <div style="font-weight:800; font-size:0.9rem; color:#fff; margin-bottom:4px;">💰 0% Store-Provision</div>
-              <p style="font-size:0.8rem;">Keine 15–30% Apple- bzw. Google-Gebühren auf Abonnements, wodurch faire Preise (9,99€ / 24,99€) für Nachwuchsspieler möglich sind.</p>
-            </div>
-            <div style="background:var(--bg-dark); padding:18px; border-radius:14px; border:1px solid var(--border-subtle);">
-              <div style="font-weight:800; font-size:0.9rem; color:#fff; margin-bottom:4px;">⚡ Schnelle Iteration</div>
-              <p style="font-size:0.8rem;">Feedback von Spielern kann im Rahmen der Matura-Arbeit taggleich ohne wochenlange App-Review-Zyklen eingepflegt werden.</p>
-            </div>
-            <div style="background:var(--bg-dark); padding:18px; border-radius:14px; border:1px solid var(--border-subtle);">
-              <div style="font-weight:800; font-size:0.9rem; color:#fff; margin-bottom:4px;">📱 PWA-Kompatibilität</div>
-              <p style="font-size:0.8rem;">Lässt sich mit einem Klick („Zum Home-Bildschirm hinzufügen“) wie eine native iOS-App mit Icon und Vollbild auf dem iPhone nutzen.</p>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h2 style="font-size:1.35rem; color:var(--color-neon); margin-bottom:8px;">3. Sportwissenschaftliche Fundierung</h2>
-          <p style="line-height:1.7;">
-            Die Trainingspläne basieren auf dem Kraft-Geschwindigkeits-Profil (Force-Velocity Profile nach JB Morin), konzentrischer Reaktivkraft (Drop Jumps, Reactive Strength Index) und sportartspezifischer Periodisierung (In-Season vs. Off-Season). Die Ernährungsmodule berücksichtigen die Kohlenhydratresorption von 60–90g/Stunde unter Spielbelastung und zielgerichtete Elektrolytsubstitution.
-          </p>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <script src="js/app.js"></script>
 </body>
 </html>
